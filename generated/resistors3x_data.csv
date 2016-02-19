@@ -1,30 +1,30 @@
-val1,val2,val3,gridid
-1,1.2,1.5,A-1
-1.8,2.2,2.7,B-1
-3.3,3.9,4.7,C-1
-5.6,6.8,8.2,D-1
-10,12,15,E-1
-18,22,27,F-1
-33,39,47,G-1
-56,68,82,H-1
-100,120,150,A-2
-180,220,270,B-2
-330,390,470,C-2
-560,680,820,D-2
-1k,1.2k,1.5k,E-2
-1.8k,2.2k,2.7k,F-2
-3.3k,3.9k,4.7k,G-2
-5.6k,6.8k,8.2k,H-2
-10k,12k,15k,A-3
-18k,22k,27k,B-3
-33k,39k,47k,C-3
-56k,68k,82k,D-3
-100k,120k,150k,E-3
-180k,220k,270k,F-3
-330k,390k,470k,G-3
-560k,680k,820k,H-3
-1M,1.2M,1.5M,A-4
-1.8M,2.2M,2.7M,B-4
-3.3M,3.9M,4.7M,C-4
-5.6M,6.8M,8.2M,D-4
-10M,,15M,E-4
+type,package,desc,val1,val2,val3,gridid
+Resistor,Axial,"±5%, 1/4W",1,1.2,1.5,A-1
+Resistor,Axial,"±5%, 1/4W",1.8,2.2,2.7,B-1
+Resistor,Axial,"±5%, 1/4W",3.3,3.9,4.7,C-1
+Resistor,Axial,"±5%, 1/4W",5.6,6.8,8.2,D-1
+Resistor,Axial,"±5%, 1/4W",10,12,15,E-1
+Resistor,Axial,"±5%, 1/4W",18,22,27,F-1
+Resistor,Axial,"±5%, 1/4W",33,39,47,G-1
+Resistor,Axial,"±5%, 1/4W",56,68,82,H-1
+Resistor,Axial,"±5%, 1/4W",100,120,150,A-2
+Resistor,Axial,"±5%, 1/4W",180,220,270,B-2
+Resistor,Axial,"±5%, 1/4W",330,390,470,C-2
+Resistor,Axial,"±5%, 1/4W",560,680,820,D-2
+Resistor,Axial,"±5%, 1/4W",1k,1.2k,1.5k,E-2
+Resistor,Axial,"±5%, 1/4W",1.8k,2.2k,2.7k,F-2
+Resistor,Axial,"±5%, 1/4W",3.3k,3.9k,4.7k,G-2
+Resistor,Axial,"±5%, 1/4W",5.6k,6.8k,8.2k,H-2
+Resistor,Axial,"±5%, 1/4W",10k,12k,15k,A-3
+Resistor,Axial,"±5%, 1/4W",18k,22k,27k,B-3
+Resistor,Axial,"±5%, 1/4W",33k,39k,47k,C-3
+Resistor,Axial,"±5%, 1/4W",56k,68k,82k,D-3
+Resistor,Axial,"±5%, 1/4W",100k,120k,150k,E-3
+Resistor,Axial,"±5%, 1/4W",180k,220k,270k,F-3
+Resistor,Axial,"±5%, 1/4W",330k,390k,470k,G-3
+Resistor,Axial,"±5%, 1/4W",560k,680k,820k,H-3
+Resistor,Axial,"±5%, 1/4W",1M,1.2M,1.5M,A-4
+Resistor,Axial,"±5%, 1/4W",1.8M,2.2M,2.7M,B-4
+Resistor,Axial,"±5%, 1/4W",3.3M,3.9M,4.7M,C-4
+Resistor,Axial,"±5%, 1/4W",5.6M,6.8M,8.2M,D-4
+Resistor,Axial,"±5%, 1/4W",10M,,15M,E-4

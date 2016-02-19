@@ -1,0 +1,9 @@
+type,package,desc,val1,val2,val3,gridid
+Capacitors,Radial,Ceramic,10pF,22pF,47pF,A-5
+Capacitors,Radial,Ceramic,,100pF,,B-5
+Capacitors,Radial,Ceramic,,1nF,,C-5
+Capacitors,Radial,Ceramic,,10nF,,D-5
+Capacitors,Radial,Ceramic,,100nF,,E-5
+Capacitors,Radial,Ceramic,,1uF,,F-5
+Capacitors,Radial,Aluminum,10uF,22uF,47uF,G-5
+Capacitors,Radial,Aluminum,,100uF,,H-5

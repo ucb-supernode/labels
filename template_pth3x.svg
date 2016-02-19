@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="template_resistors3x.svg">
+   sodipodi:docname="template_pth3x.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -27,19 +27,19 @@
      inkscape:pageshadow="2"
      inkscape:zoom="4"
      inkscape:cx="176.11369"
-     inkscape:cy="910.0026"
+     inkscape:cy="886.2526"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="2560"
-     inkscape:window-height="1546"
-     inkscape:window-x="2224"
-     inkscape:window-y="185"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      units="in"
      inkscape:snap-bbox="true"
-     inkscape:snap-bbox-midpoints="true"
-     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-bbox-edge-midpoints="true"
      inkscape:bbox-nodes="false"
      inkscape:snap-intersection-paths="false"
      inkscape:object-nodes="true">
@@ -103,34 +103,33 @@
          id="tspan4143-0"
          x="57.305275"
          y="162.76541"
-         style="font-size:20.25px;letter-spacing:-1.57500005px;word-spacing:0px"
-         dx="0">Resistors</tspan></text>
+         style="font-size:20.25px;letter-spacing:-1.57500005px;word-spacing:0px">%(type)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:36px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="183.96947"
-       y="152.67583"
+       style="font-style:normal;font-weight:normal;font-size:36px;line-height:125%;font-family:Sans;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="202.24341"
+       y="151.9489"
        id="text4141-9-02"
-       transform="scale(0.9486833,1.0540926)"
+       transform="scale(0.94868327,1.0540926)"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4143-6-6"
-         x="183.96947"
-         y="152.67583"
-         style="font-size:7.5px">Axial</tspan></text>
+         x="202.24341"
+         y="151.9489"
+         style="font-size:7.5px;text-align:end;text-anchor:end">%(package)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:36px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="154.74217"
-       y="162.8999"
+       style="font-style:normal;font-weight:normal;font-size:36px;line-height:125%;font-family:Sans;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="202.24339"
+       y="162.90723"
        id="text4141-9-5-5"
-       transform="scale(0.9486833,1.0540926)"
+       transform="scale(0.94868328,1.0540926)"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4143-6-5-1"
-         x="154.74217"
-         y="162.8999"
-         style="font-size:7.5px">±5%, 0.25W</tspan></text>
+         x="202.24339"
+         y="162.90723"
+         style="font-size:7.5px;text-align:end;text-anchor:end">%(desc)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:36px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -159,16 +158,16 @@
          style="font-size:13.5px;text-align:center;letter-spacing:-1.3499999px;text-anchor:middle">%(val2)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:36px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="201.64793"
-       y="178.1554"
+       style="font-style:normal;font-weight:normal;font-size:36px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="202.76196"
+       y="177.8354"
        id="text4141-9-0-2-8-0"
-       transform="scale(0.9486833,1.0540926)"
+       transform="scale(0.94868326,1.0540926)"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4143-6-53-6-3-8"
-         x="200.29793"
-         y="178.1554"
+         x="201.41196"
+         y="177.8354"
          style="font-size:13.5px;text-align:end;letter-spacing:-1.3499999px;text-anchor:end">%(val3)</tspan></text>
     <text
        xml:space="preserve"
