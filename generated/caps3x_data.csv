@@ -4,6 +4,6 @@ Capacitors,Radial,Ceramic,,100pF,,B-5
 Capacitors,Radial,Ceramic,,1nF,,C-5
 Capacitors,Radial,Ceramic,,10nF,,D-5
 Capacitors,Radial,Ceramic,,100nF,,E-5
-Capacitors,Radial,Ceramic,,1uF,,F-5
-Capacitors,Radial,Aluminum,10uF,22uF,47uF,G-5
-Capacitors,Radial,Aluminum,,100uF,,H-5
+Capacitors,Radial,Ceramic,,1μF,,F-5
+Capacitors,Radial,Aluminum,10μF,22μF,47μF,G-5
+Capacitors,Radial,Aluminum,,100μF,,H-5
