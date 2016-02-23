@@ -50,14 +50,14 @@ if __name__ == '__main__':
                       type=argparse.FileType('r'),
                       help="Input CSV file")
   parser.add_argument('--output', '-o', required=True,
-                      type=argparse.FileType('w'),
                       help="Output CSV file")
   args = parser.parse_args()
   
   input_rows = list(csv.reader(args.input, delimiter=','))
   output_rows = annotate(input_rows, None, [DigiKeyAnnotator])
   
-  output_writer = csv.writer(args.output, delimiter=',')
-  for output_row in output_rows:
-    output_writer.writerow(output_row)
+  with open(args.output, 'w', newline='', encoding='utf-8') as outfile:
+    output_writer = csv.writer(outfile, delimiter=',')
+    for output_row in output_rows:
+      output_writer.writerow(output_row)
     
