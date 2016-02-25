@@ -26,16 +26,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.99999999"
-     inkscape:cx="216.114263"
-     inkscape:cy="915.19748"
+     inkscape:cx="122.065007"
+     inkscape:cy="962.874557"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g5683"
      showgrid="true"
-     inkscape:window-width="2560"
-     inkscape:window-height="1538"
-     inkscape:window-x="1192"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
+     inkscape:window-width="944"
+     inkscape:window-height="1162"
+     inkscape:window-x="4720"
+     inkscape:window-y="220"
+     inkscape:window-maximized="0"
      units="px"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-midpoints="true"
@@ -87,7 +87,7 @@
          x="-0.24169922"
          y="-15.890892"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;font-family:Calibri;-inkscape-font-specification:Calibri"
-         id="tspan4185">##ncols=4</tspan></text>
+         id="tspan4185">##ncols=5</tspan></text>
     <rect
        style="fill:none;fill-opacity:0.887387384;fill-rule:evenodd;stroke:#000000;stroke-width:0.354330719;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:0.354330709, 1.417322835;stroke-dashoffset:0;stroke-opacity:0.250980392"
        id="rect4139-5-5"
@@ -190,13 +190,13 @@
            y="110.56837"
            x="69.868172"
            sodipodi:role="line"
-           id="tspan5751">#code128 @align=xMinYMid %(code)</tspan></text>
+           id="tspan5751">#code128 @align=xMinYMid @thickness=6 %(code)</tspan></text>
     </g>
     <flowRoot
        xml:space="preserve"
        id="flowRoot4215"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0.9,0,0,1,13.8032227,-149.209982)"><flowRegion
+       transform="matrix(0.9,0,0,1,13.8032227,-147.372698)"><flowRegion
          id="flowRegion4217"><rect
            id="rect4219"
            width="138.413086"
@@ -204,7 +204,7 @@
            x="90"
            y="253.612183" /></flowRegion><flowPara
          id="flowPara4221"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:'Courier New';-inkscape-font-specification:'Courier New';letter-spacing:-1.054092526px">%(mfrpn) <flowSpan
-   style="font-size:7.5px"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:100%;font-family:'Courier New';-inkscape-font-specification:'Courier New';letter-spacing:-1.054092526px">%(mfrpn) <flowSpan
+   style="font-size:7.5px;line-height:100%"
    id="flowSpan4223">%(desc)</flowSpan></flowPara></flowRoot>  </g>
 </svg>
