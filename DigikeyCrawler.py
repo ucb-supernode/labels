@@ -1,5 +1,4 @@
 import argparse
-import collections
 import csv
 import re
 
@@ -14,7 +13,7 @@ h = httplib2.Http('.cache')
 PARAMETRICS_BLACKLIST = ['Quantity Available']
 
 def parse_digikey_table(soup_table):
-  elements = collections.OrderedDict()
+  elements = {}
   for row in soup_table.findChildren('tr'):
     header = row.find('th')
     value = row.find('td')
@@ -36,7 +35,7 @@ def digikey_fn(row_dict):
 
   soup = BeautifulSoup(content, 'html.parser')
   
-  parametrics = collections.OrderedDict()
+  parametrics = {}
   parametrics.update(parse_digikey_table(soup.find('table', id='product-details')))
   parametrics.update(parse_digikey_table(soup.find('table', 'attributes-table-main')))
   
