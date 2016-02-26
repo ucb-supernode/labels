@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.99999999"
-     inkscape:cx="122.065007"
-     inkscape:cy="962.874557"
+     inkscape:zoom="2.82842712"
+     inkscape:cx="54.5341873"
+     inkscape:cy="1064.81291"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -72,22 +72,27 @@
          id="tspan4146"
          x="-0.24169922"
          y="-67.453392"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;font-family:Calibri;-inkscape-font-specification:Calibri">##incx=1.75in</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;font-family:Calibri;-inkscape-font-specification:Calibri">#config </tspan><tspan
          sodipodi:role="line"
          x="-0.24169922"
          y="-50.265892"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;font-family:Calibri;-inkscape-font-specification:Calibri"
-         id="tspan4166">##incy=0.5in</tspan><tspan
+         id="tspan4227">incx=1.75in </tspan><tspan
          sodipodi:role="line"
          x="-0.24169922"
          y="-33.078392"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;font-family:Calibri;-inkscape-font-specification:Calibri"
-         id="tspan4181">##nrows=20</tspan><tspan
+         id="tspan4166">incy=0.5in </tspan><tspan
          sodipodi:role="line"
          x="-0.24169922"
          y="-15.890892"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;font-family:Calibri;-inkscape-font-specification:Calibri"
-         id="tspan4185">##ncols=5</tspan></text>
+         id="tspan4181">nrows=20 </tspan><tspan
+         sodipodi:role="line"
+         x="-0.24169922"
+         y="1.296608"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;font-family:Calibri;-inkscape-font-specification:Calibri"
+         id="tspan4185">ncols=5</tspan></text>
     <rect
        style="fill:none;fill-opacity:0.887387384;fill-rule:evenodd;stroke:#000000;stroke-width:0.354330719;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:0.354330709, 1.417322835;stroke-dashoffset:0;stroke-opacity:0.250980392"
        id="rect4139-5-5"
@@ -190,7 +195,7 @@
            y="110.56837"
            x="69.868172"
            sodipodi:role="line"
-           id="tspan5751">#code128 @align=xMinYMid %(code)</tspan></text>
+           id="tspan5751">#code128 align=xMinYMid thickness=5 %(code)</tspan></text>
     </g>
     <flowRoot
        xml:space="preserve"
