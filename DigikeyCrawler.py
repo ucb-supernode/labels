@@ -46,13 +46,13 @@ DigiKeyAnnotator = AnnotateFn("parametrics", digikey_fn)
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description="Pulls part parametric data from DigiKey")
   parser.add_argument('--input', '-i', required=True,
-                      type=argparse.FileType('r'),
                       help="Input CSV file")
   parser.add_argument('--output', '-o', required=True,
                       help="Output CSV file")
   args = parser.parse_args()
   
-  input_rows = list(csv.reader(args.input, delimiter=','))
+  with open(args.input, 'r', encoding='utf-8') as infile:
+    input_rows = list(csv.reader(infile, delimiter=','))
   output_rows = annotate(input_rows, None, [DigiKeyAnnotator])
   
   with open(args.output, 'w', newline='', encoding='utf-8') as outfile:

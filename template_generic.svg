@@ -29,7 +29,7 @@
      inkscape:cx="122.065007"
      inkscape:cy="962.874557"
      inkscape:document-units="mm"
-     inkscape:current-layer="g5683"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="944"
      inkscape:window-height="1162"
@@ -190,7 +190,7 @@
            y="110.56837"
            x="69.868172"
            sodipodi:role="line"
-           id="tspan5751">#code128 @align=xMinYMid @thickness=6 %(code)</tspan></text>
+           id="tspan5751">#code128 @align=xMinYMid %(code)</tspan></text>
     </g>
     <flowRoot
        xml:space="preserve"
@@ -204,7 +204,9 @@
            x="90"
            y="253.612183" /></flowRegion><flowPara
          id="flowPara4221"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:100%;font-family:'Courier New';-inkscape-font-specification:'Courier New';letter-spacing:-1.054092526px">%(mfrpn) <flowSpan
-   style="font-size:7.5px;line-height:100%"
-   id="flowSpan4223">%(desc)</flowSpan></flowPara></flowRoot>  </g>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:100%;font-family:'Courier New';-inkscape-font-specification:'Courier New';letter-spacing:-1.054092526px"><flowSpan
+           style="font-weight:bold"
+           id="flowSpan4225">%(mfrpn)</flowSpan><flowSpan
+           style="font-size:7.5px;line-height:100%"
+           id="flowSpan4223"> %(desc)</flowSpan></flowPara></flowRoot>  </g>
 </svg>
