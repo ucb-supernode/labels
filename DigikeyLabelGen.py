@@ -1,27 +1,43 @@
 import argparse
 import ast
 import csv
+from collections import namedtuple
 
 from annotators import *
 
+# Simple annotator that adds a column whose value is the name of the specified
+# parametrics field.
 def DigikeyFieldAnnotator(out_name, field_name):
   def annotate_fn(row_dict):
     paramterics = ast.literal_eval(row_dict['parametrics'])
-    return paramterics[field_name]
-  return AnnotateFn(out_name, annotate_fn)
+    return {out_name: paramterics[field_name]}
+  return AnnotateFn([out_name], annotate_fn)
 
-def DigikeyTitleAnnotator(out_name):
+QuickDescStruct = namedtuple('QuickDescStruct', ['preprocessors', 'title', 'quickdesc'])
+quickdesc_rules = {
+"Through Hole Resistors": QuickDescStruct([
+                                           ],
+                                          u"Res, %(Resistance (Ohms))s\u03A9",
+                                          "%(Tolerance)s, %(Power (Watts))s"
+                                          )
+}
+
+def DigikeyQuickDescAnnotator():
   def annotate_fn(row_dict):
-    # Family to format string
-    rules = {
-      "Through Hole Resistors": u"Res, %(Resistance (Ohms))s\u03A9"
-    }
     parametrics = ast.literal_eval(row_dict['parametrics'])
     family = parametrics['Family']
-    assert family in rules, "Family '" + family + "' not in rules table"
-    return rules[family] % parametrics
-  return AnnotateFn(out_name, annotate_fn)
-
+    assert family in quickdesc_rules, "no rule for part family '%s'" % family
+    quickdesc_rule = quickdesc_rules[family] 
+    # TODO: handle preprocessors in quickdesc rules
+    title = quickdesc_rule.title % parametrics
+    package = parametrics['Package / Case']
+    quickdesc = quickdesc_rule.quickdesc % parametrics
+    return {'title': title,
+            'package': package,
+            'quickdesc': quickdesc}
+    
+  return AnnotateFn(['title', 'package', 'quickdesc'], annotate_fn)
+  
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description="Generates label fields using Digikey parametrics")
   parser.add_argument('--input', '-i', required=True,
@@ -33,9 +49,7 @@ if __name__ == '__main__':
   with open(args.input, 'r', encoding='utf-8') as infile:
     input_rows = list(csv.reader(infile, delimiter=','))
     
-  output_rows = annotate(input_rows, None, [DigikeyTitleAnnotator('title'),
-                                            DigikeyFieldAnnotator('package', 'Package / Case'),
-                                            DigikeyFieldAnnotator('quickdesc', 'Tolerance'),
+  output_rows = annotate(input_rows, None, [DigikeyQuickDescAnnotator(),
                                             DigikeyFieldAnnotator('mfrpn', 'Manufacturer Part Number'),
                                             DigikeyFieldAnnotator('desc', 'Description'),
                                             DigikeyFieldAnnotator('code', 'Digi-Key Part Number'),
