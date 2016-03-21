@@ -2,6 +2,7 @@ import argparse
 import ast
 import csv
 from collections import namedtuple
+import re
 
 from annotators import *
 
@@ -13,13 +14,41 @@ def DigikeyFieldAnnotator(out_name, field_name):
     return {out_name: paramterics[field_name]}
   return AnnotateFn([out_name], annotate_fn)
 
+ParametricPreprocess = namedtuple('ParametricPreprocess', ['name', 'fn'])
+
+"""
+Return a function which takes a string (formatted as a list of sub-strings, with
+the specified separator). Matches the sub-strings in the list against the regex
+strings in matches (in order of matches), returning the first sub-string that
+matches.
+Intended use case is to pick a desired sub-string element by format (ranked in
+matches).
+Raises an exception if no match is found. Matches can include a wildcard as a
+fallback, which will just return the first sub-string. 
+"""
+def list_select_first_regex_match(matches, separator=','):
+  match_progs = [re.compile(match) for match in matches]
+  def fn(in_string):
+    substrings = in_string.split(separator)
+    substrings = [substr.strip() for substr in substrings]
+    for match_prog in match_progs:
+      for substr in substrings:
+        if match_prog.match(substr):
+          return substr
+    # TODO: proper exception hierarchy
+    raise Exception("Failed to match on '%s' with matchers %s" % (in_string, matches))
+    
+  return fn
+
 QuickDescStruct = namedtuple('QuickDescStruct', ['preprocessors', 'title', 'quickdesc'])
 quickdesc_rules = {
-"Through Hole Resistors": QuickDescStruct([
-                                           ],
-                                          u"Res, %(Resistance (Ohms))s\u03A9",
-                                          "%(Tolerance)s, %(Power (Watts))s"
-                                          )
+"Through Hole Resistors":
+    QuickDescStruct([ParametricPreprocess("Power (Watts)", list_select_first_regex_match(["\d+/\d+W"
+                                                                                          ".*"]))
+                     ],
+                    u"Res, %(Resistance (Ohms))s\u03A9",
+                    "%(Tolerance)s, %(Power (Watts))s"
+                    )
 }
 
 def DigikeyQuickDescAnnotator():
@@ -28,7 +57,9 @@ def DigikeyQuickDescAnnotator():
     family = parametrics['Family']
     assert family in quickdesc_rules, "no rule for part family '%s'" % family
     quickdesc_rule = quickdesc_rules[family] 
-    # TODO: handle preprocessors in quickdesc rules
+    for processor in quickdesc_rule.preprocessors:
+      assert processor.name in parametrics, "Preprocessor for family '%s' needs pamametric '%s'" % (family, processor.name)
+      parametrics[processor.name] = processor.fn(parametrics[processor.name])
     title = quickdesc_rule.title % parametrics
     package = parametrics['Package / Case']
     quickdesc = quickdesc_rule.quickdesc % parametrics
