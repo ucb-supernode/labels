@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="744.094482"
-   height="1052.36218"
-   viewBox="0 0 744.094488 1052.3622"
+   width="8.5in"
+   height="11in"
+   viewBox="0 0 765.000012 990.000021"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="template_generic.svg">
+   sodipodi:docname="template_resistors.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -25,21 +25,21 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.65685425"
-     inkscape:cx="185.754275"
-     inkscape:cy="997.253301"
+     inkscape:zoom="2.82842713"
+     inkscape:cx="54.0945621"
+     inkscape:cy="930.858019"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1264"
-     inkscape:window-height="1522"
-     inkscape:window-x="2480"
-     inkscape:window-y="0"
+     inkscape:window-width="1310"
+     inkscape:window-height="1300"
+     inkscape:window-x="1651"
+     inkscape:window-y="241"
      inkscape:window-maximized="0"
-     units="px"
+     units="in"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-midpoints="true"
-     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-edge-midpoints="false"
      inkscape:bbox-nodes="false">
     <inkscape:grid
        type="xygrid"
@@ -60,7 +60,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(0,-62.3621849)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -98,50 +99,50 @@
        id="rect4139-5-5"
        width="157.5"
        height="45"
-       x="90"
+       x="22.5"
        y="84.8621826" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:37.947330475px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="100.17687"
+       x="29.025625"
        y="100.04847"
        id="text4141-0-2"
        sodipodi:linespacing="125%"
        transform="scale(0.948683301,1.05409255)"><tspan
          sodipodi:role="line"
          id="tspan4143-0-2"
-         x="100.17687"
+         x="29.025625"
          y="100.04847"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.25px;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:-1px;word-spacing:0px">%(title)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:37.947330475px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="255.39076"
+       x="184.23952"
        y="95.227592"
        id="text4141-9-02-1"
        sodipodi:linespacing="125%"
        transform="scale(0.948683301,1.05409255)"><tspan
          sodipodi:role="line"
          id="tspan4143-6-6-4"
-         x="254.67924"
+         x="183.98952"
          y="95.227592"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;letter-spacing:-0.25px;text-anchor:end">%(package)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:37.947330475px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="255.39076"
+       x="184.23952"
        y="100.56393"
        id="text4141-9-5-5-5"
        sodipodi:linespacing="125%"
        transform="scale(0.948683301,1.05409255)"><tspan
          sodipodi:role="line"
          id="tspan4143-6-5-1-8"
-         x="254.67924"
+         x="183.98952"
          y="100.56393"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;letter-spacing:-0.25px;text-anchor:end">%(quickdesc)</tspan></text>
     <g
        id="g5683"
-       transform="translate(25.4675217,-15.236214)">
+       transform="translate(-42.0324783,-15.2362094)">
       <rect
          y="105.723396"
          x="70.1574783"
@@ -167,7 +168,7 @@
        xml:space="preserve"
        id="flowRoot4215"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0.9,0,0,1,14.0760793,-146.982983)"><flowRegion
+       transform="matrix(0.9,0,0,1,-53.4239207,-146.982979)"><flowRegion
          id="flowRegion4217"><rect
            id="rect4219"
            width="138.413086"
@@ -176,12 +177,12 @@
            y="253.612183" /></flowRegion><flowPara
          id="flowPara4221"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:100%;font-family:'Courier New';-inkscape-font-specification:'Courier New';letter-spacing:-1.054092526px"><flowSpan
-           style="font-weight:bold;font-size:7.905694008px;letter-spacing:-0.527046277px"
+           style="font-weight:bold;font-size:7.905694008px;letter-spacing:-0.527046263px"
            id="flowSpan4225">%(mfrpn)</flowSpan><flowSpan
-           style="font-size:5.27046299px;line-height:100%;letter-spacing:-0.263523138px"
+           style="font-size:5.27046299px;line-height:100%;letter-spacing:-0.263523132px"
            id="flowSpan4223"> %(desc)</flowSpan></flowPara></flowRoot>    <g
        id="g4255"
-       transform="translate(1.08629465e-5,-4.42564487e-6)">
+       transform="translate(-67.4999891,1.3998033e-7)">
       <rect
          y="107.539352"
          x="227.989655"
@@ -206,7 +207,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.25px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;writing-mode:lr-tb;text-anchor:start">#style fill=%(res_color1)</tspan></text>
     </g>
     <g
-       transform="translate(5.62501086,-4.42564487e-6)"
+       transform="translate(-61.8749891,1.3998033e-7)"
        id="g4255-7">
       <rect
          y="107.539352"
@@ -232,7 +233,7 @@
            id="tspan4344">#style fill=%(res_color2)</tspan></text>
     </g>
     <g
-       transform="translate(11.2500109,-4.42564487e-6)"
+       transform="translate(-56.2499891,1.3998033e-7)"
        id="g4255-7-0">
       <rect
          y="107.539352"
@@ -260,15 +261,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:37.947330475px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="255.39076"
+       x="184.23952"
        y="89.891243"
        id="text4141-9-02-1-6"
        sodipodi:linespacing="125%"
        transform="scale(0.948683301,1.05409255)"><tspan
          sodipodi:role="line"
          id="tspan4143-6-6-4-2"
-         x="254.89076"
+         x="183.98952"
          y="89.891243"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;letter-spacing:-0.25px;text-anchor:end">%(gridid)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;letter-spacing:-0.25px;text-anchor:end">%(gridid)%(subgridid)</tspan></text>
   </g>
 </svg>

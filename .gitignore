@@ -1,2 +1,8 @@
+.sconsign.dblite
+.project
+.pydevproject
+
 __pycache__
 .cache
+
+generated

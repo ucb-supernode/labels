@@ -39,9 +39,9 @@ def digikey_fn(row_dict):
   parametrics.update(parse_digikey_table(soup.find('table', id='product-details')))
   parametrics.update(parse_digikey_table(soup.find('table', 'attributes-table-main')))
   
-  return str(parametrics)
+  return {'parametrics': str(parametrics)}
 
-DigiKeyAnnotator = AnnotateFn("parametrics", digikey_fn)
+DigiKeyAnnotator = AnnotateFn(['parametrics'], digikey_fn)
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description="Pulls part parametric data from DigiKey")
