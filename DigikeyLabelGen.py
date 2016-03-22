@@ -229,9 +229,7 @@ def DigikeyQuickDescAnnotator():
       parametrics[k] = v
     # Global package preference selection
     if 'Package / Case' in parametrics:
-      print(parametrics['Package / Case'])
       parametrics['Package / Case'] = list_select_first_regex_match(preferred_package_pattern)(parametrics['Package / Case'])
-      print(parametrics['Package / Case'])
     
     quickdesc_rule = quickdesc_rules[family]
     for processor in quickdesc_rule.preprocessors:
