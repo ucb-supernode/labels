@@ -28,7 +28,7 @@ Raises an exception if no match is found. Matches can include a wildcard as a
 fallback, which will just return the first sub-string. 
 """
 def list_select_first_regex_match(matches, separator=','):
-  match_progs = [re.compile(match) for match in matches]
+  match_progs = [re.compile('^' + match + '$') for match in matches]
   def fn(in_string):
     substrings = in_string.split(separator)
     substrings = [substr.strip() for substr in substrings]
@@ -200,13 +200,19 @@ quickdesc_rules = {
 }
 
 preferred_package_pattern = [
-  u'D\00B2?PAK',
+  u'D\u00B2?Pak',
+  'TO-220-?\d*',
+  'TO-92-?\d*',
   'TO-\d+-?\d*',
+  'SOT-23-?\d*',
   'SOT-\d+-?\d*',
+  'DO-\d+',
   '\d+-TSSOP',
   'Radial',
   '.*',
 ]
+
+paren_removal_regex = re.compile("\s*\([^\(^\)]+\)\s*")
 
 def DigikeyQuickDescAnnotator():
   def annotate_fn(row_dict):
@@ -217,13 +223,15 @@ def DigikeyQuickDescAnnotator():
     # Do global pre-process
     for k, v in parametrics.items():
       # Eliminate supplemental information in parentheses
-      v = re.sub("\s*\([^\(^\)]+\)\s*", '', v)
+      v = re.sub(paren_removal_regex, '', v)
       if v == '-':
         v = '?'
       parametrics[k] = v
     # Global package preference selection
     if 'Package / Case' in parametrics:
+      print(parametrics['Package / Case'])
       parametrics['Package / Case'] = list_select_first_regex_match(preferred_package_pattern)(parametrics['Package / Case'])
+      print(parametrics['Package / Case'])
     
     quickdesc_rule = quickdesc_rules[family]
     for processor in quickdesc_rule.preprocessors:
