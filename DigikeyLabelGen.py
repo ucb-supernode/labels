@@ -44,25 +44,196 @@ def list_select_first_regex_match(matches, separator=','):
 QuickDescStruct = namedtuple('QuickDescStruct', ['preprocessors', 'title', 'quickdesc'])
 quickdesc_rules = {
 "Through Hole Resistors":
-    QuickDescStruct([ParametricPreprocess("Power (Watts)", list_select_first_regex_match(["\d+/\d+W"
-                                                                                          ".*"]))
+    QuickDescStruct([ParametricPreprocess("Power (Watts)",
+                                          list_select_first_regex_match(["\d+/\d+W"
+                                                                         ".*"]))
                      ],
                     u"Res, %(Resistance (Ohms))s\u03A9",
                     "%(Tolerance)s, %(Power (Watts))s"
-                    )
+                    ),
+"Ceramic Capacitors":
+    QuickDescStruct([ParametricPreprocess("Temperature Coefficient",
+                                          list_select_first_regex_match([".*"]))
+                     ],
+                    "Cap, %(Capacitance)s",
+                    "Ceramic %(Temperature Coefficient)s, %(Voltage - Rated)s, %(Tolerance)s"
+                    ),
+"Aluminum Capacitors":
+    QuickDescStruct([],
+                    "Cap, %(Capacitance)s",
+                    "Aluminum, %(Voltage Rating)s, %(Tolerance)s"
+                    ),
+"Diodes, Rectifiers - Single":
+    QuickDescStruct([],
+                    "Diode, %(Voltage - DC Reverse (Vr) (Max))s %(Current - Average Rectified (Io))s",
+                    "%(Diode Type)s, %(Voltage - Forward (Vf) (Max) @ If)s"
+                    ),
+"Crystals":
+    QuickDescStruct([],
+                    "Crystal, %(Frequency)s",
+                    "%(Frequency Tolerance)s, %(Load Capacitance)s"
+                    ),
+"Thermistors - NTC":
+    QuickDescStruct([],
+                    u"NTC Thermistor, %(Resistance in Ohms @ 25\u00B0C)s\u03A9",
+                    "%(Resistance Tolerance)s"
+                    ),
+"Linear - Amplifiers - Instrumentation, OP Amps, Buffer Amps":
+    QuickDescStruct([],
+                    "IC, Op-amp",
+                    "%(-3db Bandwidth)s"
+                    ),
+"Linear - Comparators":
+    QuickDescStruct([],
+                    "IC, Comparator",
+                    ""
+                    ),
+"Data Acquisition - Analog to Digital Converters (ADC)":
+    QuickDescStruct([],
+                    "IC, ADC",
+                    "%(Number of Bits)s bits, %(Sampling Rate (Per Second))ssps"
+                    ),
+"Data Acquisition - Digital to Analog Converters (DAC)":
+    QuickDescStruct([],
+                    "IC, DAC",
+                    "%(Number of Bits)s bits, %(Sampling Rate (Per Second))ssps"
+                    ),
+"PMIC - Voltage Regulators - Linear":
+    QuickDescStruct([],
+                    "IC, LDO",
+                    "%(Voltage - Output)s, %(Current - Output)s, %(Voltage - Dropout (Typical))s drop"
+                    ),
+"PMIC - Voltage Reference":
+    QuickDescStruct([],
+                    "IC, Vref %(Voltage - Output (Min/Fixed))s",
+                    "%(Tolerance)s"
+                    ),
+"PMIC - Voltage Regulators - DC DC Switching Regulators":
+    QuickDescStruct([],
+                    "IC, DC/DC",
+                    "%(Frequency - Switching)s, (%(Topology)s)"
+                    ),
+"PMIC - Voltage Regulators - DC DC Switching Controllers":
+    QuickDescStruct([],
+                    "IC, DC/DC",
+                    "%(Frequency - Switching)s, (%(Topology)s)"
+                    ),
+"Clock/Timing - Real Time Clocks":
+    QuickDescStruct([],
+                    "IC, RTC",
+                    ""
+                    ),
+"Magnetic Sensors - Linear, Compass (ICs)":
+    QuickDescStruct([],
+                    "Sensor, Magnetic",
+                    "%(Technology)s, (%(Axis)s)"
+                    ),
+"Logic - Flip Flops":
+    QuickDescStruct([],
+                    "IC, %(Type)s FF",
+                    "",
+                    ),
+"Logic - Gates and Inverters":
+    QuickDescStruct([],
+                    "IC, %(Logic Type)s",
+                    "",
+                    ),
+"Logic - Shift Registers":
+    QuickDescStruct([],
+                    "IC, Shifter",
+                    "",
+                    ),
+                   
+"Linear - Amplifiers - Audio":
+    QuickDescStruct([],
+                    "IC, Misc",
+                    ""
+                    ),
+"PMIC - Battery Management":
+    QuickDescStruct([],
+                    "IC, Misc",
+                    "",
+                    ),
+"Clock/Timing - Programmable Timers and Oscillators":
+    QuickDescStruct([],
+                    "IC, Misc",
+                    "",
+                    ),
+"PMIC - LED Drivers":
+    QuickDescStruct([],
+                    "IC, Misc",
+                    ""
+                    ),
+"Interface - I/O Expanders":
+    QuickDescStruct([],
+                    "IC, Misc",
+                    ""
+                    ),
+                   
+"Slide Switches":
+    QuickDescStruct([],
+                    "Slide switch",
+                    "%(Current Rating)s, %(Voltage Rating - DC)s"
+                    ),
+"Tactile Switches":
+    QuickDescStruct([],
+                    "Slide switch",
+                    "%(Operating Force)s"
+                    ),
+"Transistors (BJT) - Single":
+    QuickDescStruct([],
+                    "%(Transistor Type)s BJT",
+                    "%(Voltage - Collector Emitter Breakdown (Max))s, %(Current - Collector (Ic) (Max))s",
+                    ),
+"Transistors (BJT) - Arrays":
+    QuickDescStruct([],
+                    "BJT Array",
+                    "%(Voltage - Collector Emitter Breakdown (Max))s, %(Current - Collector (Ic) (Max))s",
+                    ),
+"FETs - Single":
+    QuickDescStruct([ParametricPreprocess("FET Type",
+                                          list_select_first_regex_match([".*"]))
+                     ],
+                    "%(FET Type)s",
+                    u"%(Drain to Source Voltage (Vdss))s, %(Current - Continuous Drain (Id) @ 25\u00B0C)s",
+                    ),
 }
+
+preferred_package_pattern = [
+  u'D\00B2?PAK',
+  'TO-\d+-?\d*',
+  'SOT-\d+-?\d*',
+  '\d+-TSSOP',
+  'Radial',
+  '.*',
+]
 
 def DigikeyQuickDescAnnotator():
   def annotate_fn(row_dict):
     parametrics = ast.literal_eval(row_dict['parametrics'])
     family = parametrics['Family']
     assert family in quickdesc_rules, "no rule for part family '%s'" % family
-    quickdesc_rule = quickdesc_rules[family] 
+    
+    # Do global pre-process
+    for k, v in parametrics.items():
+      # Eliminate supplemental information in parentheses
+      v = re.sub("\s*\([^\(^\)]+\)\s*", '', v)
+      if v == '-':
+        v = '?'
+      parametrics[k] = v
+    # Global package preference selection
+    if 'Package / Case' in parametrics:
+      parametrics['Package / Case'] = list_select_first_regex_match(preferred_package_pattern)(parametrics['Package / Case'])
+    
+    quickdesc_rule = quickdesc_rules[family]
     for processor in quickdesc_rule.preprocessors:
       assert processor.name in parametrics, "Preprocessor for family '%s' needs pamametric '%s'" % (family, processor.name)
       parametrics[processor.name] = processor.fn(parametrics[processor.name])
     title = quickdesc_rule.title % parametrics
-    package = parametrics['Package / Case']
+    if 'Package / Case' in parametrics:
+      package = parametrics['Package / Case']
+    else:
+      package = ''
     quickdesc = quickdesc_rule.quickdesc % parametrics
     return {'title': title,
             'package': package,
