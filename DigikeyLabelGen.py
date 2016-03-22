@@ -140,8 +140,6 @@ def DigikeyResistorColorAnnotator():
     else:
       val2_code = 0
     
-    print("%s => %s %s %s" % (res_str, val1_code, val2_code, mult_code))
-    
     return {
       'res_color1': resistor_colors[val1_code],
       'res_color2': resistor_colors[val2_code],
