@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="template_parts.svg">
+   sodipodi:docname="template_parts_single.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -25,15 +25,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="21.158829"
-     inkscape:cy="945.55052"
+     inkscape:zoom="7.99999999"
+     inkscape:cx="119.859326"
+     inkscape:cy="926.726369"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="705"
-     inkscape:window-x="-8"
+     inkscape:window-width="2560"
+     inkscape:window-height="1538"
+     inkscape:window-x="1192"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      units="in"
@@ -109,7 +109,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:-1px;word-spacing:0px">%(title)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:37.947330475px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="190.27682"
        y="119.65002"
        id="text4141-9-02-1"
@@ -119,7 +119,9 @@
          id="tspan4143-6-6-4"
          x="190.02682"
          y="119.65002"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.25px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;letter-spacing:-0.25px;text-anchor:end">%(package)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.25px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;letter-spacing:-0.25px;text-anchor:end">%(package)<tspan
+   style="font-weight:bold;fill:#ff0000;fill-opacity:1"
+   id="tspan4162">%(cost)</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"

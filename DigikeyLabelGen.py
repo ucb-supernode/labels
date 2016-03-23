@@ -27,7 +27,7 @@ matches).
 Raises an exception if no match is found. Matches can include a wildcard as a
 fallback, which will just return the first sub-string. 
 """
-def list_select_first_regex_match(matches, separator=','):
+def list_select_first_regex_match(matches, separator=', '):
   match_progs = [re.compile('^' + match + '$') for match in matches]
   def fn(in_string):
     substrings = in_string.split(separator)
@@ -38,7 +38,58 @@ def list_select_first_regex_match(matches, separator=','):
           return substr
     # TODO: proper exception hierarchy
     raise Exception("Failed to match on '%s' with matchers %s" % (in_string, matches))
-    
+  return fn
+
+"""
+Return a function which takes a string (formatted as a list of sub-strings, with
+the specified separator), and returns the truncated version, optionally with an
+end part to indicate truncation.
+"""
+def list_truncate(num_elements, end="...", separator=', '):
+  def fn(in_string):
+    substrings = in_string.split(separator)
+    if len(substrings) > num_elements:
+      substrings = substrings[:num_elements]
+      if end:
+        substrings.append(end)
+    return separator.join(substrings)
+  return fn
+
+
+"""
+Returns a function that takes a string, looks up that string in a dict, and
+returns the found value (or the input value, if no match and default is True).
+Throws an exception if no match is found and default is False.
+"""
+def remap(remap_dict, default=True):
+  def fn(in_string):
+    if in_string in remap_dict:
+      return remap_dict[in_string]
+    else:
+      if default:
+        return in_string
+      else:
+        raise Exception("Failed to remap '%s' with dict %s" % (in_string, remap_dict))
+  return fn
+
+"""
+Returns a function that takes a string and tries to match it against the
+specified regexes (in sequence). If a match is found, the capture groups are
+interpolated into the output string associated with the regex.
+If no match is found, returns the input (if default is True) or throws an
+exception (if default is False).
+"""
+def regex_capture_map(regex_output_pair_list, default=True):
+  regex_output_pair_compiled_list = [(re.compile('^' + regex + '$'), output) for (regex, output) in regex_output_pair_list]
+  def fn(in_string):
+    for regex, output in regex_output_pair_compiled_list:
+      match = regex.match(in_string)
+      if match:
+        return output % match.groups()
+    if default:
+      return in_string
+    else:
+      raise Exception("Failed to remap '%s' with regex list %s" % (in_string, regex_output_pair_list))
   return fn
 
 QuickDescStruct = namedtuple('QuickDescStruct', ['preprocessors', 'title', 'quickdesc'])
@@ -46,27 +97,30 @@ quickdesc_rules = {
 "Through Hole Resistors":
     QuickDescStruct([ParametricPreprocess("Power (Watts)",
                                           list_select_first_regex_match(["\d+/\d+W"
-                                                                         ".*"]))
+                                                                         ".*"])),
                      ],
                     u"Res, %(Resistance (Ohms))s\u03A9",
                     "%(Tolerance)s, %(Power (Watts))s"
                     ),
 "Ceramic Capacitors":
     QuickDescStruct([ParametricPreprocess("Temperature Coefficient",
-                                          list_select_first_regex_match([".*"]))
+                                          list_select_first_regex_match([".*"])),
                      ],
                     "Cap, %(Capacitance)s",
-                    "Ceramic %(Temperature Coefficient)s, %(Voltage - Rated)s, %(Tolerance)s"
+                    "Cer %(Temperature Coefficient)s, %(Voltage - Rated)s, %(Tolerance)s"
                     ),
 "Aluminum Capacitors":
     QuickDescStruct([],
                     "Cap, %(Capacitance)s",
-                    "Aluminum, %(Voltage Rating)s, %(Tolerance)s"
+                    "Alum, %(Voltage Rating)s, %(Tolerance)s"
                     ),
 "Diodes, Rectifiers - Single":
-    QuickDescStruct([],
+    QuickDescStruct([ParametricPreprocess("Voltage - Forward (Vf) (Max) @ If",
+                                          regex_capture_map([("(\d+.?\d*\w*V)\s*@.*", "%s"),
+                                                             ], default=False)),
+                     ],
                     "Diode, %(Voltage - DC Reverse (Vr) (Max))s %(Current - Average Rectified (Io))s",
-                    "%(Diode Type)s, %(Voltage - Forward (Vf) (Max) @ If)s"
+                    "%(Diode Type)s, %(Voltage - Forward (Vf) (Max) @ If)sdrop"
                     ),
 "Crystals":
     QuickDescStruct([],
@@ -75,8 +129,8 @@ quickdesc_rules = {
                     ),
 "Thermistors - NTC":
     QuickDescStruct([],
-                    u"NTC Thermistor, %(Resistance in Ohms @ 25\u00B0C)s\u03A9",
-                    "%(Resistance Tolerance)s"
+                    u"NTC Thermistor",
+                    "%(Resistance in Ohms @ 25\u00B0C)s\u03A9, %(Resistance Tolerance)s"
                     ),
 "Linear - Amplifiers - Instrumentation, OP Amps, Buffer Amps":
     QuickDescStruct([],
@@ -99,9 +153,18 @@ quickdesc_rules = {
                     "%(Number of Bits)s bits, %(Sampling Rate (Per Second))ssps"
                     ),
 "PMIC - Voltage Regulators - Linear":
-    QuickDescStruct([],
-                    "IC, LDO",
-                    "%(Voltage - Output)s, %(Current - Output)s, %(Voltage - Dropout (Typical))s drop"
+    QuickDescStruct([ParametricPreprocess("Voltage - Output",
+                                          regex_capture_map([(".*~.*", "Adj"),
+                                                             ("(\d+.?\d*\w*V)", "%s"),
+                                                             (".*", ''),
+                                                             ], default=False)),
+                    ParametricPreprocess("Voltage - Dropout (Typical)",
+                                          regex_capture_map([("(\d+.?\d*\w*V)\s*@.*", "%s"),
+                                                             ("\?", "?"),
+                                                             ], default=False)),
+                     ],
+                    "IC, LDO %(Voltage - Output)s",
+                    "%(Current - Output)s, %(Voltage - Dropout (Typical))sdrop"
                     ),
 "PMIC - Voltage Reference":
     QuickDescStruct([],
@@ -109,12 +172,16 @@ quickdesc_rules = {
                     "%(Tolerance)s"
                     ),
 "PMIC - Voltage Regulators - DC DC Switching Regulators":
-    QuickDescStruct([],
+    QuickDescStruct([ParametricPreprocess("Topology",
+                                          list_truncate(2)),
+                     ],
                     "IC, DC/DC",
                     "%(Frequency - Switching)s, (%(Topology)s)"
                     ),
 "PMIC - Voltage Regulators - DC DC Switching Controllers":
-    QuickDescStruct([],
+    QuickDescStruct([ParametricPreprocess("Topology",
+                                          list_truncate(2)),
+                     ],
                     "IC, DC/DC",
                     "%(Frequency - Switching)s, (%(Topology)s)"
                     ),
@@ -126,7 +193,7 @@ quickdesc_rules = {
 "Magnetic Sensors - Linear, Compass (ICs)":
     QuickDescStruct([],
                     "Sensor, Magnetic",
-                    "%(Technology)s, (%(Axis)s)"
+                    ""
                     ),
 "Logic - Flip Flops":
     QuickDescStruct([],
@@ -177,7 +244,7 @@ quickdesc_rules = {
                     ),
 "Tactile Switches":
     QuickDescStruct([],
-                    "Slide switch",
+                    "Tactile switch",
                     "%(Operating Force)s"
                     ),
 "Transistors (BJT) - Single":
@@ -192,7 +259,11 @@ quickdesc_rules = {
                     ),
 "FETs - Single":
     QuickDescStruct([ParametricPreprocess("FET Type",
-                                          list_select_first_regex_match([".*"]))
+                                          list_select_first_regex_match([".*"])),
+                     ParametricPreprocess("FET Type",
+                                          remap({'MOSFET N-Channel': 'N-MOSFET',
+                                                 'MOSFET P-Channel': 'P-MOSFET',
+                                                 }, False)),
                      ],
                     "%(FET Type)s",
                     u"%(Drain to Source Voltage (Vdss))s, %(Current - Continuous Drain (Id) @ 25\u00B0C)s",
@@ -212,6 +283,10 @@ preferred_package_pattern = [
   '.*',
 ]
 
+package_remap = {
+  'SOT-753': 'SOT-23-5'
+}
+
 paren_removal_regex = re.compile("\s*\([^\(^\)]+\)\s*")
 
 def DigikeyQuickDescAnnotator():
@@ -227,9 +302,13 @@ def DigikeyQuickDescAnnotator():
       if v == '-':
         v = '?'
       parametrics[k] = v
+      
     # Global package preference selection
     if 'Package / Case' in parametrics:
-      parametrics['Package / Case'] = list_select_first_regex_match(preferred_package_pattern)(parametrics['Package / Case'])
+      package = list_select_first_regex_match(preferred_package_pattern)(parametrics['Package / Case'])
+      if package in package_remap:
+        package = package_remap[package]
+      parametrics['Package / Case'] = package 
     
     quickdesc_rule = quickdesc_rules[family]
     for processor in quickdesc_rule.preprocessors:

@@ -42,10 +42,18 @@ resistors_labels = env.Labels('resistors.svg',
                               resistors_csv)
 
 
-parts_csv = env.Annotator('parts.csv',
-                          'data/parts_digikey.csv',
+parts_sub_csv = env.Annotator('parts_sub.csv',
+                          'data/parts_sub_digikey.csv',
                           ['DigikeyCrawler.py',
                            'DigikeyLabelGen.py'])
-parts_labels = env.Labels('parts.svg',
-                          'templates/template_parts.svg',
-                          parts_csv)
+parts_sub_labels = env.Labels('parts_sub.svg',
+                          'templates/template_parts_sub.svg',
+                          parts_sub_csv)
+
+parts_single_csv = env.Annotator('parts_single.csv',
+                          'data/parts_single_digikey.csv',
+                          ['DigikeyCrawler.py',
+                           'DigikeyLabelGen.py'])
+parts_single_labels = env.Labels('parts_single.svg',
+                          'templates/template_parts_single.svg',
+                          parts_single_csv)
