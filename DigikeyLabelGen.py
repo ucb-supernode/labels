@@ -404,6 +404,20 @@ def DigikeyResistorColorAnnotator():
     
   return AnnotateFn(['res_color1', 'res_color2', 'res_color3'], annotate_fn)
   
+def LabelBackgroundAnnotator():
+  def annotate_fn(row_dict):
+    parametrics = ast.literal_eval(row_dict['parametrics'])
+    
+    if row_dict['cost']:
+      return {'bg_color' : '#FFC0C0'}
+    if 'Mounting Type' in parametrics:
+      if parametrics['Mounting Type'].find('Through Hole') >= 0:
+        return {'bg_color' : '#C0FFC0'}
+
+    return {'bg_color' : '#FFFFFF'}
+    
+  return AnnotateFn(['bg_color'], annotate_fn)
+  
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description="Generates label fields using Digikey parametrics")
   parser.add_argument('--input', '-i', required=True,
@@ -420,6 +434,7 @@ if __name__ == '__main__':
                                             DigikeyFieldAnnotator('desc', 'Description'),
                                             DigikeyFieldAnnotator('code', 'Digi-Key Part Number'),
                                             DigikeyResistorColorAnnotator(),
+                                            LabelBackgroundAnnotator(),
                                             ])
   
   with open(args.output, 'w', newline='', encoding='utf-8') as outfile:
