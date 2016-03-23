@@ -409,10 +409,10 @@ def LabelBackgroundAnnotator():
     parametrics = ast.literal_eval(row_dict['parametrics'])
     
     if row_dict['cost']:
-      return {'bg_color' : '#FFC0C0'}
+      return {'bg_color' : '#E87B70'}
     if 'Mounting Type' in parametrics:
       if parametrics['Mounting Type'].find('Through Hole') >= 0:
-        return {'bg_color' : '#C0FFC0'}
+        return {'bg_color' : '#D1EEDE'}
 
     return {'bg_color' : '#FFFFFF'}
     

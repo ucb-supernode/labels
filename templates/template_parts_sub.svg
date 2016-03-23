@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="template_parts_single.svg">
+   sodipodi:docname="template_parts_sub.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.99999999"
-     inkscape:cx="112.680974"
+     inkscape:cx="90.743474"
      inkscape:cy="909.964156"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1178"
-     inkscape:window-x="3752"
-     inkscape:window-y="212"
+     inkscape:window-width="2560"
+     inkscape:window-height="1538"
+     inkscape:window-x="1192"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      units="in"
      inkscape:snap-bbox="true"
@@ -144,7 +144,7 @@
          x="190.02682"
          y="119.65002"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.25px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;letter-spacing:-0.25px;text-anchor:end">%(package)<tspan
-   style="font-weight:bold;fill:#ff0000;fill-opacity:1"
+   style="font-weight:bold;fill:#800000;fill-opacity:1"
    id="tspan4162">%(cost)</tspan></tspan></text>
     <text
        xml:space="preserve"

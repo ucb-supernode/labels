@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="template_parts_sub.svg">
+   sodipodi:docname="template_parts_single.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.99999999"
-     inkscape:cx="70.889923"
-     inkscape:cy="932.06933"
+     inkscape:cx="43.7723714"
+     inkscape:cy="926.19433"
      inkscape:document-units="mm"
-     inkscape:current-layer="g4188"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="2560"
      inkscape:window-height="1538"
@@ -145,7 +145,7 @@
          x="184.0945"
          y="119.65002"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.25px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;letter-spacing:-0.25px;text-anchor:end">%(package)<tspan
-   style="font-weight:bold;fill:#ff0000;fill-opacity:1"
+   style="font-weight:bold;fill:#800000;fill-opacity:1"
    id="tspan4162">%(cost)</tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -167,8 +167,8 @@
        transform="matrix(0.9,0,0,1,-42.1739207,-118.857981)"><flowRegion
          id="flowRegion4217"><rect
            id="rect4219"
-           width="163.109909"
-           height="20.4204807"
+           width="150.609909"
+           height="20.4204826"
            x="90"
            y="253.612183" /></flowRegion><flowPara
          id="flowPara4221"
