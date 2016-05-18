@@ -1,3 +1,10 @@
+This license applies only to the direct contents of this repository,
+including data collection and processing scripts, label templates,
+and data sets.
+
+Note that the labelmaker software is submoduled and is under its own
+license.
+
 Copyright (c) 2016, Supernode
 All rights reserved.
 
