@@ -23,23 +23,26 @@ def parse_digikey_table(soup_table):
   return elements
 
 def digikey_fn(row_dict):
-  resp_headers, content = h.request(URL_PREFIX + quote(row_dict['digikey_pn']))
-  content = content.decode('utf-8')
-  
-  # The part attributes table has a hanging </a> tag. Fail...
-  content = re.sub(r'</a>', '', content)
-  content = re.sub(r'<a[^>]*>', '', content)
-  content = content.replace('&nbsp;', '')
-  content = content.replace('\n', '')
-  content = content.replace('\t', '')
+  if 'digikey_pn' in row_dict and row_dict['digikey_pn']:
+    _, content = h.request(URL_PREFIX + quote(row_dict['digikey_pn']))
+    content = content.decode('utf-8')
 
-  soup = BeautifulSoup(content, 'html.parser')
-  
-  parametrics = {}
-  parametrics.update(parse_digikey_table(soup.find('table', id='product-details')))
-  parametrics.update(parse_digikey_table(soup.find('table', 'attributes-table-main')))
-  
-  return {'parametrics': str(parametrics)}
+    # The part attributes table has a hanging </a> tag. Fail...
+    content = re.sub(r'</a>', '', content)
+    content = re.sub(r'<a[^>]*>', '', content)
+    content = content.replace('&nbsp;', '')
+    content = content.replace('\n', '')
+    content = content.replace('\t', '')
+
+    soup = BeautifulSoup(content, 'html.parser')
+
+    parametrics = {}
+    parametrics.update(parse_digikey_table(soup.find('table', id='product-details')))
+    parametrics.update(parse_digikey_table(soup.find('table', id='prod-att-table')))
+
+    return {'parametrics': str(parametrics)}
+  else:
+    return {}
 
 DigiKeyAnnotator = AnnotateFn(['parametrics'], digikey_fn)
 
@@ -50,13 +53,12 @@ if __name__ == '__main__':
   parser.add_argument('--output', '-o', required=True,
                       help="Output CSV file")
   args = parser.parse_args()
-  
+
   with open(args.input, 'r', encoding='utf-8') as infile:
     input_rows = list(csv.reader(infile, delimiter=','))
   output_rows = annotate(input_rows, None, [DigiKeyAnnotator])
-  
+
   with open(args.output, 'w', newline='', encoding='utf-8') as outfile:
     output_writer = csv.writer(outfile, delimiter=',')
     for output_row in output_rows:
       output_writer.writerow(output_row)
-    
