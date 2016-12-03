@@ -3,7 +3,6 @@ import ast
 import csv
 from collections import namedtuple
 import re
-from math import log10
 
 from annotators import *
 
@@ -11,34 +10,14 @@ from annotators import *
 # parametrics field.
 def DigikeyFieldAnnotator(out_name, field_name):
   def annotate_fn(row_dict):
-    paramterics = ast.literal_eval(row_dict['parametrics'])
+    parametrics_str = row_dict['parametrics']
+    if not parametrics_str:
+      return {}
+    paramterics = ast.literal_eval(parametrics_str)
     return {out_name: paramterics[field_name]}
   return AnnotateFn([out_name], annotate_fn)
 
 ParametricPreprocess = namedtuple('ParametricPreprocess', ['name', 'fn'])
-
-"""
-Return a function which takes a string (formatted as a list of sub-strings, with
-the specified separator). Matches the sub-strings in the list against the regex
-strings in matches (in order of matches), returning the first sub-string that
-matches.
-Intended use case is to pick a desired sub-string element by format (ranked in
-matches).
-Raises an exception if no match is found. Matches can include a wildcard as a
-fallback, which will just return the first sub-string. 
-"""
-def list_select_first_regex_match(matches, separator=', '):
-  match_progs = [re.compile('^' + match + '$') for match in matches]
-  def fn(in_string):
-    substrings = in_string.split(separator)
-    substrings = [substr.strip() for substr in substrings]
-    for match_prog in match_progs:
-      for substr in substrings:
-        if match_prog.match(substr):
-          return substr
-    # TODO: proper exception hierarchy
-    raise Exception("Failed to match on '%s' with matchers %s" % (in_string, matches))
-  return fn
 
 """
 Return a function which takes a string (formatted as a list of sub-strings, with
@@ -94,207 +73,247 @@ def regex_capture_map(regex_output_pair_list, default=True):
 
 QuickDescStruct = namedtuple('QuickDescStruct', ['preprocessors', 'title', 'quickdesc'])
 quickdesc_rules = {
-"Through Hole Resistors":
-    QuickDescStruct([ParametricPreprocess("Power (Watts)",
-                                          list_select_first_regex_match(["\d+/\d+W"
-                                                                         ".*"])),
-                     ],
-                    u"Res, %(Resistance (Ohms))s\u03A9",
-                    "%(Tolerance)s, %(Power (Watts))s"
-                    ),
 "Ceramic Capacitors":
-    QuickDescStruct([ParametricPreprocess("Temperature Coefficient",
-                                          list_select_first_regex_match([".*"])),
-                     ],
-                    "Cap, %(Capacitance)s",
-                    "Cer %(Temperature Coefficient)s, %(Voltage - Rated)s, %(Tolerance)s"
-                    ),
+    QuickDescStruct([],
+                    "Capacitor, Ceramic, %(Capacitance)s",
+                    "%(Voltage - Rated)s, %(Temperature Coefficient)s, %(Tolerance)s"
+                   ),
 "Aluminum Capacitors":
     QuickDescStruct([],
-                    "Cap, %(Capacitance)s",
-                    "Alum, %(Voltage Rating)s, %(Tolerance)s"
-                    ),
-"Diodes, Rectifiers - Single":
+                    "Capacitor, Aluminum, %(Capacitance)s",
+                    "%(Voltage Rating)s, %(Tolerance)s"
+                   ),
+
+### Electromechanical
+"Slide Switches":
+    QuickDescStruct([],
+                    "Slide switch",
+                    "%(Current Rating)s, %(Voltage Rating - DC)s"
+                   ),
+"Tactile Switches":
+    QuickDescStruct([],
+                    "Tactile switch",
+                    "%(Operating Force)s"
+                   ),
+
+### Discrete Semiconductors
+"Diodes - Rectifiers - Single":
     QuickDescStruct([ParametricPreprocess("Voltage - Forward (Vf) (Max) @ If",
                                           regex_capture_map([("(\d+.?\d*\w*V)\s*@.*", "%s"),
-                                                             ], default=False)),
-                     ],
+                                                            ], default=False)),
+                    ],
                     "Diode, %(Voltage - DC Reverse (Vr) (Max))s %(Current - Average Rectified (Io))s",
-                    "%(Diode Type)s, %(Voltage - Forward (Vf) (Max) @ If)sdrop"
-                    ),
-"Crystals":
+                    "%(Diode Type)s, %(Voltage - Forward (Vf) (Max) @ If)s(f)"
+                   ),
+"Diodes - Zener - Single":
+    QuickDescStruct([ParametricPreprocess("Voltage - Forward (Vf) (Max) @ If",
+                                          regex_capture_map([("(\d+.?\d*\w*V)\s*@.*", "%s"),
+                                                            ], default=False)),
+                    ],
+                    "Zener, %(Voltage - Zener (Nom) (Vz))s",
+                    "%(Voltage - Forward (Vf) (Max) @ If)s(f)"
+                   ),
+"TVS - Diodes":
     QuickDescStruct([],
-                    "Crystal, %(Frequency)s",
-                    "%(Frequency Tolerance)s, %(Load Capacitance)s"
-                    ),
-"Thermistors - NTC":
+                    "TVS Diode, %(Voltage - Reverse Standoff (Typ))s",
+                    "%(Applications)s"
+                   ),
+
+"Transistors - Bipolar (BJT) - Single":
     QuickDescStruct([],
-                    u"NTC Thermistor",
-                    "%(Resistance in Ohms @ 25\u00B0C)s\u03A9, %(Resistance Tolerance)s"
-                    ),
-"Linear - Amplifiers - Instrumentation, OP Amps, Buffer Amps":
+                    "%(Transistor Type)s BJT",
+                    "%(Voltage - Collector Emitter Breakdown (Max))s, %(Current - Collector (Ic) (Max))s",
+                   ),
+"Transistors - Bipolar (BJT) - Arrays":
     QuickDescStruct([],
-                    "IC, Op-amp",
-                    "%(-3db Bandwidth)s"
-                    ),
-"Linear - Comparators":
-    QuickDescStruct([],
-                    "IC, Comparator",
-                    ""
-                    ),
-"Data Acquisition - Analog to Digital Converters (ADC)":
-    QuickDescStruct([],
-                    "IC, ADC",
-                    "%(Number of Bits)s bits, %(Sampling Rate (Per Second))ssps"
-                    ),
-"Data Acquisition - Digital to Analog Converters (DAC)":
-    QuickDescStruct([],
-                    "IC, DAC",
-                    "%(Number of Bits)s bits, %(Sampling Rate (Per Second))ssps"
-                    ),
+                    "BJT Array",
+                    "%(Voltage - Collector Emitter Breakdown (Max))s, %(Current - Collector (Ic) (Max))s",
+                   ),
+"Transistors - FETs, MOSFETs - Single":
+    QuickDescStruct([ParametricPreprocess("FET Type", list_truncate(1, '')),  # take first element of list
+                     ParametricPreprocess("FET Type",
+                                          remap({'MOSFET N-Channel': 'N-MOSFET',
+                                                 'MOSFET P-Channel': 'P-MOSFET',
+                                                }, False)),
+                    ],
+                    "%(FET Type)s",
+                    u"%(Drain to Source Voltage (Vdss))s, %(Current - Continuous Drain (Id) @ 25\u00B0C)s",
+                   ),
+
+### ICs, Power conversion
 "PMIC - Voltage Regulators - Linear":
     QuickDescStruct([ParametricPreprocess("Voltage - Output",
                                           regex_capture_map([(".*~.*", "Adj"),
                                                              ("(\d+.?\d*\w*V)", "%s"),
                                                              (".*", ''),
-                                                             ], default=False)),
-                    ParametricPreprocess("Voltage - Dropout (Typical)",
+                                                            ], default=False)),
+                     ParametricPreprocess("Voltage - Dropout (Typical)",
                                           regex_capture_map([("(\d+.?\d*\w*V)\s*@.*", "%s"),
                                                              ("\?", "?"),
-                                                             ], default=False)),
-                     ],
+                                                            ], default=False)),
+                    ],
                     "IC, LDO %(Voltage - Output)s",
-                    "%(Current - Output)s, %(Voltage - Dropout (Typical))sdrop"
-                    ),
+                    "%(Current - Output)s, %(Voltage - Dropout (Typical))s(d)"
+                   ),
 "PMIC - Voltage Reference":
     QuickDescStruct([],
                     "IC, Vref %(Voltage - Output (Min/Fixed))s",
                     "%(Tolerance)s"
-                    ),
+                   ),
 "PMIC - Voltage Regulators - DC DC Switching Regulators":
-    QuickDescStruct([ParametricPreprocess("Topology",
-                                          list_truncate(2)),
-                     ],
+    QuickDescStruct([ParametricPreprocess("Topology", list_truncate(2)),
+                    ],
                     "IC, DC/DC",
                     "%(Frequency - Switching)s, (%(Topology)s)"
-                    ),
+                   ),
 "PMIC - Voltage Regulators - DC DC Switching Controllers":
-    QuickDescStruct([ParametricPreprocess("Topology",
-                                          list_truncate(2)),
+    QuickDescStruct([ParametricPreprocess("Topology", list_truncate(2)),
                      ],
                     "IC, DC/DC",
                     "%(Frequency - Switching)s, (%(Topology)s)"
-                    ),
-"Clock/Timing - Real Time Clocks":
-    QuickDescStruct([],
-                    "IC, RTC",
-                    ""
-                    ),
-"Magnetic Sensors - Linear, Compass (ICs)":
-    QuickDescStruct([],
-                    "Sensor, Magnetic",
-                    ""
-                    ),
+                   ),
+
+### ICs, Logic
 "Logic - Flip Flops":
     QuickDescStruct([],
-                    "IC, %(Type)s FF",
-                    "",
-                    ),
+                    "IC, Flip-flop, %(Manufacturer Part Number)s",
+                    ""
+                   ),
 "Logic - Gates and Inverters":
     QuickDescStruct([],
-                    "IC, %(Logic Type)s",
-                    "",
-                    ),
+                    "IC, %(Logic Type)s, %(Manufacturer Part Number)s",
+                    ""
+                   ),
 "Logic - Shift Registers":
     QuickDescStruct([],
-                    "IC, Shifter",
-                    "",
-                    ),
-                   
+                    "IC, Shift Register, %(Manufacturer Part Number)s",
+                    ""
+                   ),
+
+### ICs, Misc
+"Linear - Amplifiers - Instrumentation, OP Amps, Buffer Amps":
+    QuickDescStruct([],
+                    "IC, Op-amp, %(Manufacturer Part Number)s",
+                    "%(-3db Bandwidth)s (-3db), %(Slew Rate)s"
+                   ),
 "Linear - Amplifiers - Audio":
     QuickDescStruct([],
-                    "IC, Misc",
-                    ""
-                    ),
-"PMIC - Battery Management":
+                    "IC, Audio Op-amp, %(Manufacturer Part Number)s",
+                    "%(Type)s"
+                   ),
+"Linear - Comparators":
     QuickDescStruct([],
-                    "IC, Misc",
-                    "",
-                    ),
+                    "IC, Comparator, %(Manufacturer Part Number)s",
+                    ""
+                   ),
+"Data Acquisition - Analog to Digital Converters (ADC)":
+    QuickDescStruct([],
+                    "IC, ADC, %(Manufacturer Part Number)s",
+                    "%(Number of Bits)sb, %(Sampling Rate (Per Second))ssps"
+                   ),
+"Data Acquisition - Digital to Analog Converters (DAC)":
+    QuickDescStruct([],
+                    "IC, DAC, %(Manufacturer Part Number)s",
+                    "%(Number of Bits)sb, %(Settling Time)s"
+                   ),
+"Clock/Timing - Real Time Clocks":
+    QuickDescStruct([],
+                    "IC, RTC, %(Manufacturer Part Number)s",
+                    ""
+                   ),
 "Clock/Timing - Programmable Timers and Oscillators":
     QuickDescStruct([],
-                    "IC, Misc",
-                    "",
-                    ),
+                    "IC, Timer, %(Manufacturer Part Number)s",
+                    ""
+                   ),
 "PMIC - LED Drivers":
     QuickDescStruct([],
-                    "IC, Misc",
+                    "IC, LED Driver, %(Manufacturer Part Number)s",
+                    "%(Number of Outputs)sx, %(Current - Output / Channel)s"
+                   ),
+"Clock/Timing - Real Time Clocks":
+    QuickDescStruct([],
+                    "IC, RTC, %(Manufacturer Part Number)s",
                     ""
-                    ),
-"Interface - I/O Expanders":
+                   ),
+
+### ICs, Misc, Sensors
+"Magnetic Sensors - Linear, Compass (ICs)":
     QuickDescStruct([],
-                    "IC, Misc",
+                    "Sensor, Magnetic, %(Manufacturer Part Number)s",
+                    "%(Axis)s axis, %(Bandwidth)s"
+                   ),
+
+### Misc
+"Crystals":
+    QuickDescStruct([],
+                    "Crystal, %(Frequency)s",
+                    "%(Frequency Tolerance)s, %(Load Capacitance)s"
+                   ),
+"PTC Resettable Fuses":
+    QuickDescStruct([],
+                    "PTC Fuse, %(Current - Hold (Ih) (Max))s(h)",
+                    "%(Voltage - Max)s, %(Current - Trip (It))s(t)"
+                   ),
+"Temperature Sensors - NTC Thermistors":
+    QuickDescStruct([],
+                    "Thermistor, NTC, %(Resistance in Ohms @ 25\u00b0C)s",
                     ""
-                    ),
-                   
-"Slide Switches":
-    QuickDescStruct([],
-                    "Slide switch",
-                    "%(Current Rating)s, %(Voltage Rating - DC)s"
-                    ),
-"Tactile Switches":
-    QuickDescStruct([],
-                    "Tactile switch",
-                    "%(Operating Force)s"
-                    ),
-"Transistors (BJT) - Single":
-    QuickDescStruct([],
-                    "%(Transistor Type)s BJT",
-                    "%(Voltage - Collector Emitter Breakdown (Max))s, %(Current - Collector (Ic) (Max))s",
-                    ),
-"Transistors (BJT) - Arrays":
-    QuickDescStruct([],
-                    "BJT Array",
-                    "%(Voltage - Collector Emitter Breakdown (Max))s, %(Current - Collector (Ic) (Max))s",
-                    ),
-"FETs - Single":
-    QuickDescStruct([ParametricPreprocess("FET Type",
-                                          list_select_first_regex_match([".*"])),
-                     ParametricPreprocess("FET Type",
-                                          remap({'MOSFET N-Channel': 'N-MOSFET',
-                                                 'MOSFET P-Channel': 'P-MOSFET',
-                                                 }, False)),
-                     ],
-                    "%(FET Type)s",
-                    u"%(Drain to Source Voltage (Vdss))s, %(Current - Continuous Drain (Id) @ 25\u00B0C)s",
-                    ),
+                   ),
 }
 
-preferred_package_pattern = [
-  u'D\u00B2?Pak',
-  'TO-220-?\d*',
-  'TO-92-?\d*',
-  'TO-\d+-?\d*',
-  'SOT-23-?\d*',
-  'SOT-\d+-?\d*',
-  'DO-\d+',
-  '\d+-TSSOP',
-  'Radial',
-  '.*',
-]
+"""
+Return a function which takes a string (formatted as a list of sub-strings, with
+the specified separator). Matches the sub-strings in the list against the regex
+strings in matches (in order of matches), returning the first sub-string that
+matches.
+Intended use case is to pick a desired sub-string element by format (ranked in
+matches).
+Raises an exception if no match is found. Matches can include a wildcard as a
+fallback, which will just return the first sub-string.
+"""
+def list_regex_map(matches, separator=', ', default=True):
+  match_progs = [(re.compile('^' + elt[0] + '$'), elt[1]) for elt in matches]
+  def fn(in_string):
+    substrings = in_string.split(separator)
+    substrings = [substr.strip() for substr in substrings]
+    for match_prog, output in match_progs:
+      for substr in substrings:
+        match = match_prog.match(substr)
+        if match:
+          return output % match.groups()
+    if default:
+      return substrings[0]
+    else:
+      raise Exception("Failed to match on '%s' with matchers %s" % (in_string, matches))
+  return fn
 
-package_remap = {
-  'SOT-753': 'SOT-23-5'
+
+package_priority_map = {
+  (u'(D\u00B2?Pak)', '%s'),
+  ('(TO-220).*', '%s'),
+  ('(TO-92).*', '%s'),
+  ('(TO-\d+).*', '%s'),
+  ('(SOT-23).*', '%s'),
+  ('(SOT-\d+).*', '%s'),
+  ('(SOD-\d+).*', '%s'),
+  ('(DO-\d+)', '%s'),
+  ('(\d+-TSSOP)', '%s'),
+  ('SOT-753', 'SOT-23'),
+  ('(Radial)', '%s'),
 }
 
 paren_removal_regex = re.compile("\s*\([^\(^\)]+\)\s*")
 
 def DigikeyQuickDescAnnotator():
   def annotate_fn(row_dict):
-    parametrics = ast.literal_eval(row_dict['parametrics'])
+    parametrics_str = row_dict['parametrics']
+    if not parametrics_str:
+      return {}
+    parametrics = ast.literal_eval(parametrics_str)
     family = parametrics['Family']
     assert family in quickdesc_rules, "no rule for part family '%s'" % family
-    
+
     # Do global pre-process
     for k, v in parametrics.items():
       # Eliminate supplemental information in parentheses
@@ -302,14 +321,12 @@ def DigikeyQuickDescAnnotator():
       if v == '-':
         v = '?'
       parametrics[k] = v
-      
+
     # Global package preference selection
     if 'Package / Case' in parametrics:
-      package = list_select_first_regex_match(preferred_package_pattern)(parametrics['Package / Case'])
-      if package in package_remap:
-        package = package_remap[package]
-      parametrics['Package / Case'] = package 
-    
+      package = list_regex_map(package_priority_map)(parametrics['Package / Case'])
+      parametrics['Package / Case'] = package
+
     quickdesc_rule = quickdesc_rules[family]
     for processor in quickdesc_rule.preprocessors:
       assert processor.name in parametrics, "Preprocessor for family '%s' needs pamametric '%s'" % (family, processor.name)
@@ -323,101 +340,52 @@ def DigikeyQuickDescAnnotator():
     return {'title': title,
             'package': package,
             'quickdesc': quickdesc}
-    
+
   return AnnotateFn(['title', 'package', 'quickdesc'], annotate_fn)
-  
-# map from digit to colors
-resistor_colors = {
-  -1: '#CFB53B',  # gold
-  -2: '#C0C0C0',  # silver
-  0: '#000000',   # black
-  1: '#964B00',   # brown
-  2: '#FF0000',   # red
-  3: '#FFA500',   # orange
-  4: '#FFFF00',   # yellow
-  5: '#9ACD32',   # green
-  6: '#6495ED',   # blue
-  7: '#EE82EE',   # violet
-  8: '#A0A0A0',   # grey
-  9: '#FFFFFF',   # white
-}
 
-# maps from percent tolerance to colors
-resistor_tolerance_colors = {
-  1: '#964B00',   # brown
-  2: '#FF0000',   # red
-  0.5: '#9ACD32',   # green
-  0.25: '#6495ED',   # blue
-  0.1: '#EE82EE',   # violet
-  0.05: '#A0A0A0',   # grey
-  5: '#CFB53B',   # gold
-  10: '#C0C0C0',   # silver
-}
-  
-resistance_multiplier = {
-  'k': 3,
-  'M': 6,
-  'G': 9,                        
-}
-
-def DigikeyResistorColorAnnotator():
+"""Simple annotator generator where the output field is mapped to value.
+If the value is a string, the interpolation of that string with the row
+dictionary is returned.
+If the value is a function, it is called given the row dictionary, and the
+result is returned.
+"""
+def MappingAnnotator(mapping):
   def annotate_fn(row_dict):
-    parametrics = ast.literal_eval(row_dict['parametrics'])
-    if parametrics['Family'] != "Through Hole Resistors":
-      return {}
-    assert "Resistance (Ohms)" in parametrics, "Resistor without resistance"
-    res_str = parametrics["Resistance (Ohms)"]
-    
-    # Do calculations with string manipulation to avoid floating-point loss of
-    # precision and things like 4.6999999999k. 
-    
-    if res_str[-1].isalpha():
-      mult_str = res_str[-1]
-      res_nopow_str = res_str[:-1]
-      assert mult_str in resistance_multiplier, "Unknown multiplier '%s'" % mult_str
-      mult_pow = resistance_multiplier[mult_str]
-    else:
-      mult_pow = 0
-      res_nopow_str = res_str    
-    
-    dot_point = res_nopow_str.find('.')
-    if dot_point > 0:
-      assert not (dot_point == 1 and res_nopow_str[0] == '0'), "TODO: handle <1ohm codes"
-      mult_code = dot_point - 2 + mult_pow
-      nodot_str = res_nopow_str[0:dot_point] + res_nopow_str[dot_point+1:]
-    else:
-      mult_code = len(res_nopow_str) - 2 + mult_pow
-      
-      nodot_str = res_nopow_str
-      
-    val1_code = int(nodot_str[0])
-    if len(nodot_str) > 1:
-      val2_code = int(nodot_str[1])
-    else:
-      val2_code = 0
-    
-    return {
-      'res_color1': resistor_colors[val1_code],
-      'res_color2': resistor_colors[val2_code],
-      'res_color3': resistor_colors[mult_code],      
-     }
-    
-  return AnnotateFn(['res_color1', 'res_color2', 'res_color3'], annotate_fn)
-  
-def LabelBackgroundAnnotator():
-  def annotate_fn(row_dict):
-    parametrics = ast.literal_eval(row_dict['parametrics'])
-    
-    if row_dict['cost']:
-      return {'bg_color' : '#E87B70'}
-    if 'Mounting Type' in parametrics:
-      if parametrics['Mounting Type'].find('Through Hole') >= 0:
-        return {'bg_color' : '#D1EEDE'}
+    output = {}
+    for key, value in mapping.items():
+      if isinstance(value, str):
+        output[key] = value % row_dict
+      elif callable(value):
+        output[key] = value(row_dict)
+      else:
+        assert False, "Unknown mapping dict value %s" % value
+    return output
+  return AnnotateFn(mapping.keys(), annotate_fn)
 
-    return {'bg_color' : '#FFFFFF'}
-    
-  return AnnotateFn(['bg_color'], annotate_fn)
-  
+def PriorityAnnotator(*elts):
+  key_set = set(elts[0].out_names)
+
+  def annotate_fn(row_dict):
+    output = {}
+    for elt in elts:
+      update_dict = elt.fn(row_dict)
+      for key, value in update_dict.items():
+        if key not in output:
+          output[key] = value
+      if set(output.keys()) == key_set:
+        return output
+    return output
+  for elt in elts:
+    assert set(elt.out_names) == key_set, "inconsistent annotator output keys"
+
+  return AnnotateFn(list(key_set), annotate_fn)
+
+def title_fn(row_dict):
+  if row_dict['generic_value']:
+    return '%(generic_title)s, %(generic_value)s' % row_dict
+  else:
+    return '%(generic_title)s' % row_dict
+
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description="Generates label fields using Digikey parametrics")
   parser.add_argument('--input', '-i', required=True,
@@ -425,21 +393,27 @@ if __name__ == '__main__':
   parser.add_argument('--output', '-o', required=True,
                       help="Output CSV file")
   args = parser.parse_args()
-  
+
   with open(args.input, 'r', encoding='utf-8') as infile:
     input_rows = list(csv.reader(infile, delimiter=','))
-    
-  output_rows = annotate(input_rows, None, [DigikeyQuickDescAnnotator(),
-                                            DigikeyFieldAnnotator('mfrpn', 'Manufacturer Part Number'),
-                                            DigikeyFieldAnnotator('desc', 'Description'),
-                                            DigikeyFieldAnnotator('code', 'Digi-Key Part Number'),
-                                            DigikeyResistorColorAnnotator(),
-                                            LabelBackgroundAnnotator(),
-                                            ])
-  
+
+  output_rows = annotate(input_rows, None, [
+    PriorityAnnotator(
+      DigikeyQuickDescAnnotator(),
+      MappingAnnotator({
+        'title': title_fn,
+        'package': '%(generic_package)s',
+        'quickdesc': '%(generic_quickdesc)s',
+      }),
+    ),
+    PriorityAnnotator(
+      DigikeyFieldAnnotator('mfrpn', 'Manufacturer Part Number'),
+      MappingAnnotator({'mfrpn': ''}),
+    )
+  ])
+
   with open(args.output, 'w', newline='', encoding='utf-8') as outfile:
     output_writer = csv.writer(outfile, delimiter=',')
     for output_row in output_rows:
       output_row = output_row
       output_writer.writerow(output_row)
-    
