@@ -73,6 +73,14 @@ def regex_capture_map(regex_output_pair_list, default=True):
 
 QuickDescStruct = namedtuple('QuickDescStruct', ['preprocessors', 'title', 'quickdesc'])
 quickdesc_rules = {
+"Through Hole Resistors":
+    QuickDescStruct([ParametricPreprocess("Power (Watts)",
+                                          regex_capture_map([(".*(\d+/\d+W).*", "%s"),
+                                                            ], default=False)),
+                    ],
+                    "Resistor, %(Resistance (Ohms))s\ucea9",
+                    "%(Tolerance)s, %(Power (Watts))s"
+                   ),
 "Ceramic Capacitors":
     QuickDescStruct([],
                     "Capacitor, Ceramic, %(Capacitance)s",
@@ -290,7 +298,7 @@ def list_regex_map(matches, separator=', ', default=True):
 
 
 package_priority_map = {
-  (u'(D\u00B2?Pak)', '%s'),
+  ('(D\u00B2?Pak)', '%s'),
   ('(TO-220).*', '%s'),
   ('(TO-92).*', '%s'),
   ('(TO-\d+).*', '%s'),

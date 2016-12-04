@@ -12,7 +12,7 @@ def Annotator(env, target, source, scripts):
       new_target = target
     else:
       new_target = '%s_%s' % (target, i)
-      
+
     env.Command(new_target, intermediate_target,
                 "$PYTHON $ANNOTATOR_SCRIPT -i $SOURCE -o $TARGET")
     env.Depends(new_target, File(script))
@@ -23,12 +23,14 @@ env.AddMethod(Annotator)
 
 # A labelmaker invocation, taking in the source CSV dataset and SVG template and
 # generating a (set of) SVG labels.
-def Labels(env, target, source_template, source_csv):
+def Labels(env, target, source_template, source_config, source_csv):
   env = env.Clone()
   env['LABELS_TEMPLATE'] = File(source_template)
+  env['LABELS_CONFIG'] = File(source_config)
   env.Command(target, source_csv,
-              '$PYTHON labelmaker/labelmaker.py $LABELS_TEMPLATE $SOURCE $TARGET')
+              '$PYTHON labelmaker/labelmaker.py $LABELS_TEMPLATE $LABELS_CONFIG $SOURCE $TARGET')
   env.Depends(target, File(source_template))
+  env.Depends(target, File(source_config))
   env.Depends(target, Glob('labelmaker/*.py'))
   return File(target)
 env.AddMethod(Labels)
@@ -36,24 +38,30 @@ env.AddMethod(Labels)
 resistors_csv = env.Annotator('resistors.csv',
                               'data/resistors_digikey.csv',
                               ['DigikeyCrawler.py',
-                               'DigikeyLabelGen.py'])
+                               'DigikeyLabelGen.py',
+                               'SupernodeAnnotator.py'])
 resistors_labels = env.Labels('resistors.svg',
                               'templates/template_resistors.svg',
+                              'labelmaker/configs/1.75in_x_0.5in_Letter.ini',
                               resistors_csv)
 
 
 parts_sub_csv = env.Annotator('parts_sub.csv',
                           'data/parts_sub_digikey.csv',
                           ['DigikeyCrawler.py',
-                           'DigikeyLabelGen.py'])
+                           'DigikeyLabelGen.py',
+                           'SupernodeAnnotator.py'])
 parts_sub_labels = env.Labels('parts_sub.svg',
                           'templates/template_parts_sub.svg',
+                          'labelmaker/configs/1.75in_x_0.5in_Letter.ini',
                           parts_sub_csv)
 
 parts_single_csv = env.Annotator('parts_single.csv',
                           'data/parts_single_digikey.csv',
                           ['DigikeyCrawler.py',
-                           'DigikeyLabelGen.py'])
+                           'DigikeyLabelGen.py',
+                           'SupernodeAnnotator.py'])
 parts_single_labels = env.Labels('parts_single.svg',
                           'templates/template_parts_single.svg',
+                          'templates/template_front.ini',
                           parts_single_csv)
