@@ -319,7 +319,7 @@ def DigikeyQuickDescAnnotator():
     if not parametrics_str:
       return {}
     parametrics = ast.literal_eval(parametrics_str)
-    family = parametrics['Family']
+    family = parametrics['Categories']
     assert family in quickdesc_rules, "no rule for part family '%s'" % family
 
     # Do global pre-process

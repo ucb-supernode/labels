@@ -17,6 +17,7 @@ def Annotator(env, target, source, scripts):
                 "$PYTHON $ANNOTATOR_SCRIPT -i $SOURCE -o $TARGET")
     env.Depends(new_target, File(script))
     env.Depends(new_target, File('annotators.py'))
+    env.Depends(new_target, File('labelannotator.py'))
     intermediate_target = new_target
   return File(new_target)
 env.AddMethod(Annotator)
@@ -39,6 +40,7 @@ resistors_csv = env.Annotator('resistors.csv',
                               'data/resistors_digikey.csv',
                               ['DigikeyCrawler.py',
                                'DigikeyLabelGen.py',
+                               'DigikeyResistorColorGen.py',
                                'SupernodeAnnotator.py'])
 resistors_labels = env.Labels('resistors.svg',
                               'templates/template_resistors.svg',
