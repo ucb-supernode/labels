@@ -6,7 +6,7 @@ from urllib.parse import quote
 import httplib2
 from bs4 import BeautifulSoup
 
-from annotators import *
+from labelannotator import *
 
 URL_PREFIX = 'http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name='
 h = httplib2.Http('.cache')
@@ -34,10 +34,12 @@ def parse_digikey_table(soup_table):
 
   return elements
 
-def digikey_fn(row_dict):
+def DigikeyCrawl(row_dict):
   if 'digikey_pn' in row_dict and row_dict['digikey_pn']:
-    _, content = h.request(URL_PREFIX + quote(row_dict['digikey_pn']),
-                           headers={'user-agent': '=)'})
+    url = URL_PREFIX + quote(row_dict['digikey_pn'])
+
+    print("Fetch digikey_pn='%s' from %s" % (row_dict['digikey_pn'], url))
+    _, content = h.request(url, headers={'user-agent': '=)'})
     content = content.decode('utf-8')
 
     # The part attributes table has a hanging </a> tag. Fail...
@@ -57,21 +59,5 @@ def digikey_fn(row_dict):
   else:
     return {}
 
-DigiKeyAnnotator = AnnotateFn(['parametrics'], digikey_fn)
-
-if __name__ == '__main__':
-  parser = argparse.ArgumentParser(description="Pulls part parametric data from DigiKey")
-  parser.add_argument('--input', '-i', required=True,
-                      help="Input CSV file")
-  parser.add_argument('--output', '-o', required=True,
-                      help="Output CSV file")
-  args = parser.parse_args()
-
-  with open(args.input, 'r', encoding='utf-8') as infile:
-    input_rows = list(csv.reader(infile, delimiter=','))
-  output_rows = annotate(input_rows, None, [DigiKeyAnnotator])
-
-  with open(args.output, 'w', newline='', encoding='utf-8') as outfile:
-    output_writer = csv.writer(outfile, delimiter=',')
-    for output_row in output_rows:
-      output_writer.writerow(output_row)
+load().map_append(DigikeyCrawl) \
+    .write()

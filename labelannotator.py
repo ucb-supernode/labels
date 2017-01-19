@@ -34,8 +34,7 @@ class CsvRowCollection:
       append_dict = fn(row_dict)
       # TODO: support ordered dict
       assert not isinstance(append_dict, OrderedDict), "Ordering unsupported"
-      assert set(row_dict.keys()).isdisjoint(append_dict.keys),
-          "overlap between row " + row_dict.keys() + " and append " + append_dict.keys()
+      assert set(row_dict.keys()).isdisjoint(append_dict.keys()), "overlap between row " + row_dict.keys() + " and append " + append_dict.keys()
       append_keys = append_keys | append_dict.keys()
       new_row_dicts.append(dict(row_dict, **append_dict))
 
