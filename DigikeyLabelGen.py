@@ -197,6 +197,16 @@ quickdesc_rules = {
                     "IC, Shift Register, %(Manufacturer Part Number)s",
                     ""
                    ),
+"Logic - Translators, Level Shifters":
+    QuickDescStruct([],
+                    "IC, Level Shifter, %(Manufacturer Part Number)s",
+                    ""
+                   ),
+"Logic - Buffers, Drivers, Receivers, Transceivers":
+    QuickDescStruct([],
+                    "IC, Transceiver, %(Manufacturer Part Number)s",
+                    ""
+                   ),
 
 ### ICs, Misc
 "Linear - Amplifiers - Instrumentation, OP Amps, Buffer Amps":
@@ -234,17 +244,46 @@ quickdesc_rules = {
                     "IC, Timer, %(Manufacturer Part Number)s",
                     ""
                    ),
+"PMIC - Current Regulation/Management":
+    QuickDescStruct([],
+                    "IC, %(Function)s, %(Manufacturer Part Number)s",
+                    ""
+                   ),
+"PMIC - V/F and F/V Converters":
+    QuickDescStruct([],
+                    "IC, %(Type)s, %(Manufacturer Part Number)s",
+                    ""
+                   ),
 "PMIC - LED Drivers":
     QuickDescStruct([],
                     "IC, LED Driver, %(Manufacturer Part Number)s",
                     "%(Number of Outputs)sx, %(Current - Output / Channel)s"
+                   ),
+"PMIC - Full, Half-Bridge Drivers":
+    QuickDescStruct([],
+                    "IC, %(Output Configuration)s, %(Manufacturer Part Number)s",
+                    "%(Voltage - Load)s, %(Current - Output / Channel)s/channel"
+                   ),
+"PMIC - Gate Drivers":
+    QuickDescStruct([],
+                    "IC, Gate Driver, %(Manufacturer Part Number)s",
+                    "%(Number of Drivers)s drivers"
                    ),
 "Clock/Timing - Real Time Clocks":
     QuickDescStruct([],
                     "IC, RTC, %(Manufacturer Part Number)s",
                     ""
                    ),
-
+"Interface - Analog Switches, Multiplexers, Demultiplexers":  # TODO: make this better
+    QuickDescStruct([],
+                    "IC, Analog Switch, %(Manufacturer Part Number)s",
+                    "%(Multiplexer/Demultiplexer Circuit)s"
+                   ),
+"Interface - I/O Expanders":
+    QuickDescStruct([],
+                    "IC, I/O Expander, %(Manufacturer Part Number)s",
+                    "%(Interface)s, %(Number of I/O)s I/O"
+                   ),
 ### ICs, Misc, Sensors
 "Magnetic Sensors - Linear, Compass (ICs)":
     QuickDescStruct([],
