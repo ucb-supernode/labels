@@ -4,18 +4,18 @@ import csv
 from collections import namedtuple
 import re
 
-from annotators import *
+from labelannotator import *
 
 # Simple annotator that adds a column whose value is the name of the specified
 # parametrics field.
-def DigikeyFieldAnnotator(out_name, field_name):
+def RemapParametric(out_name, field_name):
   def annotate_fn(row_dict):
     parametrics_str = row_dict['parametrics']
     if not parametrics_str:
       return {}
     paramterics = ast.literal_eval(parametrics_str)
     return {out_name: paramterics[field_name]}
-  return AnnotateFn([out_name], annotate_fn)
+  return annotate_fn
 
 ParametricPreprocess = namedtuple('ParametricPreprocess', ['name', 'fn'])
 
@@ -140,8 +140,8 @@ quickdesc_rules = {
 "Transistors - FETs, MOSFETs - Single":
     QuickDescStruct([ParametricPreprocess("FET Type", list_truncate(1, '')),  # take first element of list
                      ParametricPreprocess("FET Type",
-                                          remap({'MOSFET N-Channel': 'N-MOSFET',
-                                                 'MOSFET P-Channel': 'P-MOSFET',
+                                          remap({'N-Channel': 'N-MOSFET',
+                                                 'P-Channel': 'P-MOSFET',
                                                 }, False)),
                     ],
                     "%(FET Type)s",
@@ -313,115 +313,43 @@ package_priority_map = {
 
 paren_removal_regex = re.compile("\s*\([^\(^\)]+\)\s*")
 
-def DigikeyQuickDescAnnotator():
-  def annotate_fn(row_dict):
-    parametrics_str = row_dict['parametrics']
-    if not parametrics_str:
-      return {}
-    parametrics = ast.literal_eval(parametrics_str)
-    family = parametrics['Categories']
-    assert family in quickdesc_rules, "no rule for part family '%s'" % family
+def DigikeyQuickDesc(row_dict):
+  print("Processing digikey_pn='%s'" % row_dict['digikey_pn'])
 
-    # Do global pre-process
-    for k, v in parametrics.items():
-      # Eliminate supplemental information in parentheses
-      v = re.sub(paren_removal_regex, '', v)
-      if v == '-':
-        v = '?'
-      parametrics[k] = v
+  parametrics_str = row_dict['parametrics']
+  if not parametrics_str:
+    return {}
+  parametrics = ast.literal_eval(parametrics_str)
+  family = parametrics['Categories']
+  assert family in quickdesc_rules, "no rule for part family '%s'" % family
 
-    # Global package preference selection
-    if 'Package / Case' in parametrics:
-      package = list_regex_map(package_priority_map)(parametrics['Package / Case'])
-      parametrics['Package / Case'] = package
+  # Do global pre-process
+  for k, v in parametrics.items():
+    # Eliminate supplemental information in parentheses
+    v = re.sub(paren_removal_regex, '', v)
+    if v == '-':
+      v = '?'
+    parametrics[k] = v
 
-    quickdesc_rule = quickdesc_rules[family]
-    for processor in quickdesc_rule.preprocessors:
-      assert processor.name in parametrics, "Preprocessor for family '%s' needs pamametric '%s'" % (family, processor.name)
-      parametrics[processor.name] = processor.fn(parametrics[processor.name])
-    title = quickdesc_rule.title % parametrics
-    if 'Package / Case' in parametrics:
-      package = parametrics['Package / Case']
-    else:
-      package = ''
-    quickdesc = quickdesc_rule.quickdesc % parametrics
-    return {'title': title,
-            'package': package,
-            'quickdesc': quickdesc}
+  # Global package preference selection
+  if 'Package / Case' in parametrics:
+    package = list_regex_map(package_priority_map)(parametrics['Package / Case'])
+    parametrics['Package / Case'] = package
 
-  return AnnotateFn(['title', 'package', 'quickdesc'], annotate_fn)
-
-"""Simple annotator generator where the output field is mapped to value.
-If the value is a string, the interpolation of that string with the row
-dictionary is returned.
-If the value is a function, it is called given the row dictionary, and the
-result is returned.
-"""
-def MappingAnnotator(mapping):
-  def annotate_fn(row_dict):
-    output = {}
-    for key, value in mapping.items():
-      if isinstance(value, str):
-        output[key] = value % row_dict
-      elif callable(value):
-        output[key] = value(row_dict)
-      else:
-        assert False, "Unknown mapping dict value %s" % value
-    return output
-  return AnnotateFn(mapping.keys(), annotate_fn)
-
-def PriorityAnnotator(*elts):
-  key_set = set(elts[0].out_names)
-
-  def annotate_fn(row_dict):
-    output = {}
-    for elt in elts:
-      update_dict = elt.fn(row_dict)
-      for key, value in update_dict.items():
-        if key not in output:
-          output[key] = value
-      if set(output.keys()) == key_set:
-        return output
-    return output
-  for elt in elts:
-    assert set(elt.out_names) == key_set, "inconsistent annotator output keys"
-
-  return AnnotateFn(list(key_set), annotate_fn)
-
-def title_fn(row_dict):
-  if row_dict['generic_value']:
-    return '%(generic_title)s, %(generic_value)s' % row_dict
+  quickdesc_rule = quickdesc_rules[family]
+  for processor in quickdesc_rule.preprocessors:
+    assert processor.name in parametrics, "Preprocessor for family '%s' needs pamametric '%s'" % (family, processor.name)
+    parametrics[processor.name] = processor.fn(parametrics[processor.name])
+  title = quickdesc_rule.title % parametrics
+  if 'Package / Case' in parametrics:
+    package = parametrics['Package / Case']
   else:
-    return '%(generic_title)s' % row_dict
+    package = ''
+  quickdesc = quickdesc_rule.quickdesc % parametrics
+  return {'title': title,
+          'package': package,
+          'quickdesc': quickdesc}
 
-if __name__ == '__main__':
-  parser = argparse.ArgumentParser(description="Generates label fields using Digikey parametrics")
-  parser.add_argument('--input', '-i', required=True,
-                      help="Input CSV file with Digikey parametrics")
-  parser.add_argument('--output', '-o', required=True,
-                      help="Output CSV file")
-  args = parser.parse_args()
-
-  with open(args.input, 'r', encoding='utf-8') as infile:
-    input_rows = list(csv.reader(infile, delimiter=','))
-
-  output_rows = annotate(input_rows, None, [
-    PriorityAnnotator(
-      DigikeyQuickDescAnnotator(),
-      MappingAnnotator({
-        'title': title_fn,
-        'package': '%(generic_package)s',
-        'quickdesc': '%(generic_quickdesc)s',
-      }),
-    ),
-    PriorityAnnotator(
-      DigikeyFieldAnnotator('mfrpn', 'Manufacturer Part Number'),
-      MappingAnnotator({'mfrpn': ''}),
-    )
-  ])
-
-  with open(args.output, 'w', newline='', encoding='utf-8') as outfile:
-    output_writer = csv.writer(outfile, delimiter=',')
-    for output_row in output_rows:
-      output_row = output_row
-      output_writer.writerow(output_row)
+load().map_append(DigikeyQuickDesc) \
+    .map_append(RemapParametric('mfrpn', 'Manufacturer Part Number')) \
+    .write()

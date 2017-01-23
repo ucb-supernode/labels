@@ -19,6 +19,7 @@ def BackgroundColor(row_dict):
   elif 'Mounting Type' in parametrics:
     if parametrics['Mounting Type'].find('Through Hole') >= 0:
       return {'bg_color': '#C0FFC0'}
+  return {'bg_color': '#FFFFFF'}
 
 load().map_append(Description) \
     .map_append(BackgroundColor) \

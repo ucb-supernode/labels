@@ -36,9 +36,11 @@ resistance_multiplier = {
 }
 
 def ResistorColor(row_dict):
+  print("Generating colors for digikey_pn='%s'" % row_dict['digikey_pn'])
+
   parametrics = ast.literal_eval(row_dict['parametrics'])
 
-  if parametrics['Family'] != "Through Hole Resistors":
+  if parametrics['Categories'] != "Through Hole Resistors":
     return {
       'res_color1': '',
       'res_color2': '',
@@ -72,7 +74,7 @@ def ResistorColor(row_dict):
   val1_code = int(nodot_str[0])
   if len(nodot_str) > 1:
     val2_code = int(nodot_str[1])
-    assert(nodot_str[1:] == '0'*(len(nodot_str) - 1)
+    assert nodot_str[2:] == '0'*(len(nodot_str) - 2)
   else:
     val2_code = 0
 
