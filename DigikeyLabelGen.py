@@ -234,6 +234,11 @@ quickdesc_rules = {
                     "IC, DAC, %(Manufacturer Part Number)s",
                     "%(Number of Bits)sb, %(Settling Time)s"
                    ),
+"Data Acquisition - Digital Potentiometers":
+    QuickDescStruct([],
+                    "IC, Digipot, %(Manufacturer Part Number)s",
+                    "%(Resistance (Ohms))s\ucea9, %(Number of Taps)s taps"
+                   ),
 "Clock/Timing - Real Time Clocks":
     QuickDescStruct([],
                     "IC, RTC, %(Manufacturer Part Number)s",
@@ -289,6 +294,26 @@ quickdesc_rules = {
     QuickDescStruct([],
                     "Sensor, Magnetic, %(Manufacturer Part Number)s",
                     "%(Axis)s axis, %(Bandwidth)s"
+                   ),
+"Optical Sensors - Photo Detectors - CdS Cells":
+    QuickDescStruct([],
+                    "CdS Photocell",
+                    ""
+                   ),
+"Optical Sensors - Photodiodes":
+    QuickDescStruct([],
+                    "Photodiode",
+                    ""
+                   ),
+"Optical Sensors - Reflective - Analog Output":
+    QuickDescStruct([],
+                    "Optical Reflective Sensor",
+                    ""
+                   ),
+"Microphones":
+    QuickDescStruct([],
+                    "Microphone",
+                    "%(Type)s"
                    ),
 
 ### Misc
@@ -385,10 +410,11 @@ def DigikeyQuickDesc(row_dict):
   else:
     package = ''
   quickdesc = quickdesc_rule.quickdesc % parametrics
-  return {'title': title,
-          'package': package,
-          'quickdesc': quickdesc}
+  return {'dist_title': title,
+          'dist_package': package,
+          'dist_quickdesc': quickdesc}
 
 load().map_append(DigikeyQuickDesc) \
-    .map_append(RemapParametric('mfrpn', 'Manufacturer Part Number')) \
+    .map_append(RemapParametric('dist_mfrpn', 'Manufacturer Part Number')) \
+    .map_append(RemapParametric('dist_desc', 'Description')) \
     .write()

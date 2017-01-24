@@ -35,29 +35,29 @@ def parse_digikey_table(soup_table):
   return elements
 
 def DigikeyCrawl(row_dict):
-  if 'digikey_pn' in row_dict and row_dict['digikey_pn']:
-    url = URL_PREFIX + quote(row_dict['digikey_pn'])
-
-    print("Fetch digikey_pn='%s' from %s" % (row_dict['digikey_pn'], url))
-    _, content = h.request(url, headers={'user-agent': '=)'})
-    content = content.decode('utf-8')
-
-    # The part attributes table has a hanging </a> tag. Fail...
-    content = re.sub(r'</a>', '', content)
-    content = re.sub(r'<a[^>]*>', '', content)
-    content = content.replace('&nbsp;', '')
-    content = content.replace('\n', '')
-    content = content.replace('\t', '')
-
-    soup = BeautifulSoup(content, 'html.parser')
-
-    parametrics = {}
-    parametrics.update(parse_digikey_table(soup.find('table', id='product-details')))
-    parametrics.update(parse_digikey_table(soup.find('table', id='prod-att-table')))
-
-    return {'parametrics': str(parametrics)}
-  else:
+  if 'digikey_pn' not in row_dict or not row_dict['digikey_pn']:
     return {}
+
+  url = URL_PREFIX + quote(row_dict['digikey_pn'])
+
+  print("Fetch digikey_pn='%s' from %s" % (row_dict['digikey_pn'], url))
+  _, content = h.request(url, headers={'user-agent': '=)'})
+  content = content.decode('utf-8')
+
+  # The part attributes table has a hanging </a> tag. Fail...
+  content = re.sub(r'</a>', '', content)
+  content = re.sub(r'<a[^>]*>', '', content)
+  content = content.replace('&nbsp;', '')
+  content = content.replace('\n', '')
+  content = content.replace('\t', '')
+
+  soup = BeautifulSoup(content, 'html.parser')
+
+  parametrics = {}
+  parametrics.update(parse_digikey_table(soup.find('table', id='product-details')))
+  parametrics.update(parse_digikey_table(soup.find('table', id='prod-att-table')))
+
+  return {'parametrics': str(parametrics)}
 
 load().map_append(DigikeyCrawl) \
     .write()

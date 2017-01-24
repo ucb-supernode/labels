@@ -2,16 +2,19 @@ import ast
 
 from labelannotator import *
 
-def Description(row_dict):
-  # map description field
-  parametrics = ast.literal_eval(row_dict['parametrics'])
-
-  if 'Description' in parametrics:
-    return {'desc' : parametrics['Description']}
-  else:
+def PriorityMap(in_fields, out_field):
+  def annotate_fn(row_dict):
+    for in_field in in_fields:
+      if in_field in row_dict and row_dict[in_field]:
+        return {out_field: row_dict[in_field]}
     return {}
 
+  return annotate_fn
+
 def BackgroundColor(row_dict):
+  if not row_dict['parametrics']:
+    return {}
+
   parametrics = ast.literal_eval(row_dict['parametrics'])
 
   if row_dict['cost']:
@@ -21,6 +24,10 @@ def BackgroundColor(row_dict):
       return {'bg_color': '#C0FFC0'}
   return {'bg_color': '#FFFFFF'}
 
-load().map_append(Description) \
-    .map_append(BackgroundColor) \
+load().map_append(BackgroundColor) \
+    .map_append(PriorityMap(['manual_title', 'dist_title'], 'title')) \
+    .map_append(PriorityMap(['manual_package', 'dist_package'], 'package')) \
+    .map_append(PriorityMap(['manual_quickdesc', 'dist_quickdesc'], 'quickdesc')) \
+    .map_append(PriorityMap(['manual_mfrpn', 'dist_mfrpn'], 'mfrpn')) \
+    .map_append(PriorityMap(['manual_desc', 'dist_desc'], 'desc')) \
     .write()
