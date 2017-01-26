@@ -64,8 +64,8 @@ C26,,2N3906-APCT-ND,,,,,,,
 D26,,PN2907A-APCT-ND,,,,,,,
 E26,,BS170-ND,,,,,,,
 F26,,IRFD9010PBF-ND,,,,,,,
-,,LM318N/NOPB-ND,,,,,,,General-purpose opamp DIP8
-,,296-1391-5-ND,,,,,,,General-purpose quad opamp DIP14
+,,LM318N/NOPB-ND,,"IC, Op-amp, LM318",,,,,General-purpose opamp DIP8
+,,296-1391-5-ND,,"IC, Op-amp, LM324",,,,,General-purpose quad opamp DIP14
 ,,LMC6482IN/NOPB-ND,,,,,,,General-purpose opamp DIP8
 ,,296-1777-5-ND,,,,,,,JFET opamp DIP14
 ,,296-44414-5-ND,,,,,,,Audio amp DIP8
@@ -107,7 +107,7 @@ F26,,IRFD9010PBF-ND,,,,,,,
 ,,296-27331-1-ND,,,,,,,Current sense adj ref SOT-363
 ,,296-1798-5-ND,,,,,,,Adjustable zener DIP8
 ,,296-9911-5-ND,,,,,,,H-bridge DIP16
-,,296-1857-5-ND,,,,,,,Timer DIP8
+,,296-1857-5-ND,,"IC, 555 Timer",,,,,Timer DIP8
 ,,MCP4131-103E/P-ND,,,,,,,"Digipot, Re-pick standardized"
 ,,,,Si4432 RF Module,,,,,"Non-stock, no replacement when depleted"
 ,,,,Header Pins,Breakaway,,,,

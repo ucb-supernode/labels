@@ -78,18 +78,18 @@ quickdesc_rules = {
                                           regex_capture_map([(".*(\d+/\d+W).*", "%s"),
                                                             ], default=False)),
                     ],
-                    "Resistor, %(Resistance (Ohms))s\ucea9",
+                    "Resistor, %(Resistance (Ohms))s\u03a9",
                     "%(Tolerance)s, %(Power (Watts))s"
                    ),
 "Ceramic Capacitors":
     QuickDescStruct([],
-                    "Capacitor, Ceramic, %(Capacitance)s",
-                    "%(Voltage - Rated)s, %(Temperature Coefficient)s, %(Tolerance)s"
+                    "Capacitor, %(Capacitance)s",
+                    "Ceramic, %(Voltage - Rated)s, %(Temperature Coefficient)s, %(Tolerance)s"
                    ),
 "Aluminum Capacitors":
     QuickDescStruct([],
-                    "Capacitor, Aluminum, %(Capacitance)s",
-                    "%(Voltage Rating)s, %(Tolerance)s"
+                    "Capacitor, %(Capacitance)s",
+                    "Aluminum, %(Voltage Rating)s, %(Tolerance)s"
                    ),
 
 ### Electromechanical
@@ -129,29 +129,20 @@ quickdesc_rules = {
 
 "Transistors - Bipolar (BJT) - Single":
     QuickDescStruct([],
-                    "%(Transistor Type)s BJT",
-                    "%(Voltage - Collector Emitter Breakdown (Max))s, %(Current - Collector (Ic) (Max))s",
-                   ),
-"Transistors - Bipolar (BJT) - Arrays":
-    QuickDescStruct([],
-                    "BJT Array",
+                    "BJT, %(Transistor Type)s",
                     "%(Voltage - Collector Emitter Breakdown (Max))s, %(Current - Collector (Ic) (Max))s",
                    ),
 "Transistors - FETs, MOSFETs - Single":
     QuickDescStruct([ParametricPreprocess("FET Type", list_truncate(1, '')),  # take first element of list
-                     ParametricPreprocess("FET Type",
-                                          remap({'N-Channel': 'N-MOSFET',
-                                                 'P-Channel': 'P-MOSFET',
-                                                }, False)),
                     ],
-                    "%(FET Type)s",
+                    "MOSFET, %(FET Type)s",
                     u"%(Drain to Source Voltage (Vdss))s, %(Current - Continuous Drain (Id) @ 25\u00B0C)s",
                    ),
 
 ### ICs, Power conversion
 "PMIC - Voltage Regulators - Linear":
     QuickDescStruct([ParametricPreprocess("Voltage - Output",
-                                          regex_capture_map([(".*~.*", "Adj"),
+                                          regex_capture_map([(".*~.*", "Adjustable"),
                                                              ("(\d+.?\d*\w*V)", "%s"),
                                                              (".*", ''),
                                                             ], default=False)),
@@ -160,139 +151,146 @@ quickdesc_rules = {
                                                              ("\?", "?"),
                                                             ], default=False)),
                     ],
-                    "IC, LDO %(Voltage - Output)s",
+                    "IC, LDO, %(Voltage - Output)s",
                     "%(Current - Output)s, %(Voltage - Dropout (Typical))s(d)"
                    ),
 "PMIC - Voltage Reference":
     QuickDescStruct([],
-                    "IC, Vref %(Voltage - Output (Min/Fixed))s",
+                    "IC, %(Voltage - Output (Min/Fixed))s Reference",
                     "%(Tolerance)s"
                    ),
 "PMIC - Voltage Regulators - DC DC Switching Regulators":
     QuickDescStruct([ParametricPreprocess("Topology", list_truncate(2)),
                     ],
-                    "IC, DC/DC",
-                    "%(Frequency - Switching)s, (%(Topology)s)"
+                    "IC, DC/DC: %(Topology)s",
+                    "Regulator, %(Frequency - Switching)s"
                    ),
 "PMIC - Voltage Regulators - DC DC Switching Controllers":
     QuickDescStruct([ParametricPreprocess("Topology", list_truncate(2)),
                      ],
-                    "IC, DC/DC",
-                    "%(Frequency - Switching)s, (%(Topology)s)"
+                    "IC, DC/DC: %(Topology)s",
+                    "Controller, %(Frequency - Switching)s"
                    ),
 
 ### ICs, Logic
 "Logic - Flip Flops":
-    QuickDescStruct([],
-                    "IC, Flip-flop, %(Manufacturer Part Number)s",
-                    ""
+    QuickDescStruct([ParametricPreprocess("Type",
+                                          regex_capture_map([("(\w+).Type*", "%s"),
+                                                             ("\?", "?"),
+                                                            ], default=False)),
+                     ParametricPreprocess("Max Propagation Delay @ V, Max CL",
+                                          regex_capture_map([("(\d+.?\d*\w*s)\s*@.*", "%s"),
+                                                             ("\?", "?"),
+                                                            ], default=False)),
+                     ],
+                    "IC, %(Type)s Flip-flop",
+                    "%(Number of Elements)sx %(Number of Bits per Element)s bits, %(Max Propagation Delay @ V, Max CL)s delay"
                    ),
 "Logic - Gates and Inverters":
-    QuickDescStruct([],
-                    "IC, %(Logic Type)s, %(Manufacturer Part Number)s",
-                    ""
+    QuickDescStruct([ParametricPreprocess("Max Propagation Delay @ V, Max CL",
+                                          regex_capture_map([("(\d+.?\d*\w*s)\s*@.*", "%s"),
+                                                             ("\?", "?"),
+                                                            ], default=False)),
+                     ],
+                    "IC, %(Logic Type)s",
+                    "%(Number of Circuits)s circuits, %(Number of Inputs)s inputs, %(Max Propagation Delay @ V, Max CL)s delay"
                    ),
 "Logic - Shift Registers":
     QuickDescStruct([],
-                    "IC, Shift Register, %(Manufacturer Part Number)s",
-                    ""
+                    "IC, Shift Register",
+                    "%(Number of Elements)sx %(Number of Bits per Element)s bits"
                    ),
 "Logic - Translators, Level Shifters":
     QuickDescStruct([],
-                    "IC, Level Shifter, %(Manufacturer Part Number)s",
-                    ""
+                    "IC, Level Shifter",
+                    "%(Number of Circuits)sx %(Channels per Circuit)s channel"
                    ),
 "Logic - Buffers, Drivers, Receivers, Transceivers":
     QuickDescStruct([],
-                    "IC, Transceiver, %(Manufacturer Part Number)s",
-                    ""
+                    "IC, Transceiver",
+                    "%(Number of Elements)sx %(Number of Bits per Element)s bits"
                    ),
 
 ### ICs, Misc
 "Linear - Amplifiers - Instrumentation, OP Amps, Buffer Amps":
     QuickDescStruct([],
-                    "IC, Op-amp, %(Manufacturer Part Number)s",
+                    "IC, Op-amp",
                     "%(-3db Bandwidth)s (-3db), %(Slew Rate)s"
                    ),
 "Linear - Amplifiers - Audio":
     QuickDescStruct([],
-                    "IC, Audio Op-amp, %(Manufacturer Part Number)s",
+                    "IC, Audio Op-amp",
                     "%(Type)s"
                    ),
 "Linear - Comparators":
     QuickDescStruct([],
-                    "IC, Comparator, %(Manufacturer Part Number)s",
+                    "IC, Comparator",
                     ""
                    ),
 "Data Acquisition - Analog to Digital Converters (ADC)":
     QuickDescStruct([],
-                    "IC, ADC, %(Manufacturer Part Number)s",
-                    "%(Number of Bits)sb, %(Sampling Rate (Per Second))ssps"
+                    "IC, ADC, %(Number of Bits)sb",
+                    "%(Sampling Rate (Per Second))ssps"
                    ),
 "Data Acquisition - Digital to Analog Converters (DAC)":
     QuickDescStruct([],
-                    "IC, DAC, %(Manufacturer Part Number)s",
-                    "%(Number of Bits)sb, %(Settling Time)s"
+                    "IC, DAC, %(Number of Bits)sb",
+                    "%(Settling Time)s"
                    ),
 "Data Acquisition - Digital Potentiometers":
     QuickDescStruct([],
-                    "IC, Digipot, %(Manufacturer Part Number)s",
-                    "%(Resistance (Ohms))s\ucea9, %(Number of Taps)s taps"
+                    "IC, Digipot, %(Resistance (Ohms))s\u03a9",
+                    "%(Number of Taps)s taps"
                    ),
 "Clock/Timing - Real Time Clocks":
     QuickDescStruct([],
-                    "IC, RTC, %(Manufacturer Part Number)s",
-                    ""
+                    "IC, Real-Time Clock",
+                    "%(Interface)s"
                    ),
 "Clock/Timing - Programmable Timers and Oscillators":
     QuickDescStruct([],
-                    "IC, Timer, %(Manufacturer Part Number)s",
-                    ""
+                    "IC, Timer",
+                    "%(Frequency)s"
                    ),
 "PMIC - Current Regulation/Management":
     QuickDescStruct([],
-                    "IC, %(Function)s, %(Manufacturer Part Number)s",
-                    ""
+                    "IC, %(Function)s",
+                    "%(Sensing Method)s Sensing"
                    ),
 "PMIC - V/F and F/V Converters":
     QuickDescStruct([],
-                    "IC, %(Type)s, %(Manufacturer Part Number)s",
-                    ""
+                    "IC, %(Type)s",
+                    "%(Frequency - Max)s max"
                    ),
 "PMIC - LED Drivers":
     QuickDescStruct([],
-                    "IC, LED Driver, %(Manufacturer Part Number)s",
+                    "IC, LED Driver",
                     "%(Number of Outputs)sx, %(Current - Output / Channel)s"
                    ),
 "PMIC - Full, Half-Bridge Drivers":
     QuickDescStruct([],
-                    "IC, %(Output Configuration)s, %(Manufacturer Part Number)s",
+                    "IC, %(Output Configuration)s",
                     "%(Voltage - Load)s, %(Current - Output / Channel)s/channel"
                    ),
 "PMIC - Gate Drivers":
     QuickDescStruct([],
-                    "IC, Gate Driver, %(Manufacturer Part Number)s",
+                    "IC, Gate Driver",
                     "%(Number of Drivers)s drivers"
-                   ),
-"Clock/Timing - Real Time Clocks":
-    QuickDescStruct([],
-                    "IC, RTC, %(Manufacturer Part Number)s",
-                    ""
                    ),
 "Interface - Analog Switches, Multiplexers, Demultiplexers":  # TODO: make this better
     QuickDescStruct([],
-                    "IC, Analog Switch, %(Manufacturer Part Number)s",
-                    "%(Multiplexer/Demultiplexer Circuit)s"
+                    "IC, Analog Switch",
+                    "%(Number of Circuits)sx %(Multiplexer/Demultiplexer Circuit)s circuit, %(-3db Bandwidth)s (-3db)"
                    ),
 "Interface - I/O Expanders":
     QuickDescStruct([],
-                    "IC, I/O Expander, %(Manufacturer Part Number)s",
+                    "IC, I/O Expander",
                     "%(Interface)s, %(Number of I/O)s I/O"
                    ),
 ### ICs, Misc, Sensors
 "Magnetic Sensors - Linear, Compass (ICs)":
     QuickDescStruct([],
-                    "Sensor, Magnetic, %(Manufacturer Part Number)s",
+                    "Sensor, Magnetic",
                     "%(Axis)s axis, %(Bandwidth)s"
                    ),
 "Optical Sensors - Photo Detectors - CdS Cells":
