@@ -84,5 +84,12 @@ def ResistorColor(row_dict):
     'res_color3': resistor_colors[mult_code],
   }
 
-load().map_append(ResistorColor) \
+def ResistorValue(row_dict):
+  parametrics = ast.literal_eval(row_dict['parametrics'])
+  res_str = parametrics["Resistance (Ohms)"]
+  return {'val': res_str + '\u03a9'}
+
+load() \
+    .map_append(ResistorColor) \
+    .map_append(ResistorValue) \
     .write()
