@@ -229,12 +229,12 @@ quickdesc_rules = {
                    ),
 "Data Acquisition - Analog to Digital Converters (ADC)":
     QuickDescStruct([],
-                    "IC, ADC, %(Number of Bits)sb",
+                    "IC, ADC, %(Number of Bits)s bits",
                     "%(Sampling Rate (Per Second))ssps"
                    ),
 "Data Acquisition - Digital to Analog Converters (DAC)":
     QuickDescStruct([],
-                    "IC, DAC, %(Number of Bits)sb",
+                    "IC, DAC, %(Number of Bits)s bits",
                     "%(Settling Time)s"
                    ),
 "Data Acquisition - Digital Potentiometers":

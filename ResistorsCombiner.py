@@ -52,7 +52,8 @@ def CombineFn(group_name, row_dicts):
 
   retval = {'title': 'Resistor',
           'quickdesc': aggregate('quickdesc', row_dicts),
-          'package': aggregate('package', row_dicts),
+          'pack': aggregate('pack', row_dicts),
+		  'dippack': aggregate('dippack', row_dicts),
           'cost': aggregate('cost', row_dicts),
           'bg_color': aggregate('bg_color', row_dicts),
           'gridid': aggregate('gridid', row_dicts),

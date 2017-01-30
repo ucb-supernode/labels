@@ -41,10 +41,6 @@ resistors_csv = env.Annotator('resistors.csv',
                                'DigikeyLabelGen.py',
                                'DigikeyResistorGen.py',
                                'SupernodeAnnotator.py'])
-resistors_sub = env.Labels('resistors.svg',
-                              'templates/template_resistors.svg',
-                              'labelmaker/configs/1.75in_x_0.5in_Letter.ini',
-                              resistors_csv)
 
 resistors_front_csv = env.Annotator('resistors_front.csv',
                                     resistors_csv,

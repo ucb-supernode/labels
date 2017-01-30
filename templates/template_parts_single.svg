@@ -25,15 +25,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313708"
-     inkscape:cx="83.892922"
-     inkscape:cy="45.04699"
+     inkscape:zoom="5.656854"
+     inkscape:cx="55.617595"
+     inkscape:cy="29.205107"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="2560"
-     inkscape:window-height="1537"
-     inkscape:window-x="1192"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      units="mm"
@@ -54,7 +54,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -64,7 +64,7 @@
      id="layer1"
      transform="translate(0,-953.14964)">
     <g
-       transform="translate(-25.181892,897.17654)"
+       transform="translate(-25.181911,897.17654)"
        id="g4188">
       <rect
          ry="3.5114008e-006"
@@ -117,8 +117,10 @@
          id="tspan4143-6-6-4"
          x="152.92055"
          y="975.8244"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.50000048px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:end;letter-spacing:-0.25px;text-anchor:end">%(package)<tspan
-   style="font-weight:normal;fill:#7f0000;fill-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.50000048px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:end;letter-spacing:-0.25px;text-anchor:end"><tspan
+   style="font-weight:bold;fill:#007f00;fill-opacity:1"
+   id="tspan4161">%(dippack)</tspan><tspan>%(pack)</tspan><tspan
+   style="font-weight:bold;fill:#7f0000;fill-opacity:1"
    id="tspan4165"> %(cost)</tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -150,20 +152,7 @@
            style="font-weight:bold;font-size:10.54092693px;line-height:87.00000048%;letter-spacing:-0.52704626px"
            id="flowSpan4225">%(mfrpn)</flowSpan><flowSpan
            style="font-size:7.90569496px;line-height:87.00000048%;letter-spacing:-0.26352313px"
-           id="flowSpan4223"> %(desc)</flowSpan></flowPara></flowRoot>    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="153.17055"
-       y="994.3125"
-       id="text4141-9-02-1-6"
-       sodipodi:linespacing="125%"
-       transform="scale(0.94868326,1.0540926)"><tspan
-         sodipodi:role="line"
-         id="tspan4143-6-6-4-2"
-         x="152.92055"
-         y="994.3125"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.50000048px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:end;letter-spacing:-0.25px;text-anchor:end">%(gridid)%(subgridid)</tspan></text>
-    <path
+           id="flowSpan4223"> %(desc)</flowSpan></flowPara></flowRoot>    <path
        style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.88582677;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.88582677, 3.54330709;stroke-dashoffset:0;stroke-opacity:1"
        d="m -14.17323,953.14964 28.34646,0"
        id="path4169-0"

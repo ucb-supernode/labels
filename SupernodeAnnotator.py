@@ -15,12 +15,19 @@ def PriorityMap(in_fields, out_field):
 def BackgroundColor(row_dict):
   if row_dict['cost']:
     return {'bg_color': '#FFC0C0'}
-  elif row_dict['parametrics']:
-    parametrics = ast.literal_eval(row_dict['parametrics'])
-    if (('Mounting Type' in parametrics and parametrics['Mounting Type'].find('Through Hole') >= 0) or
-        (re.match(".*DIP$", row_dict['package']))):
-      return {'bg_color': '#C0FFC0'}
   return {'bg_color': '#FFFFFF'}
+
+def ColoredPackage(row_dict):
+  if not row_dict['parametrics']:
+    return {'dippack': '', 'pack': row_dict['package']}
+	
+  parametrics = ast.literal_eval(row_dict['parametrics'])
+  if (('Mounting Type' in parametrics and parametrics['Mounting Type'].find('Through Hole') >= 0) or
+      (re.match(".*DIP$", row_dict['package'])) or
+  (re.match("Axial", row_dict['package']))):
+    return {'dippack': row_dict['package'], 'pack': ''}
+  else:
+    return {'dippack': '', 'pack': row_dict['package']}
 
 load() \
     .map_append(PriorityMap(['manual_title', 'dist_title'], 'title')) \
@@ -29,4 +36,5 @@ load() \
     .map_append(PriorityMap(['manual_mfrpn', 'dist_mfrpn'], 'mfrpn')) \
     .map_append(PriorityMap(['manual_desc', 'dist_desc'], 'desc')) \
     .map_append(BackgroundColor) \
+	.map_append(ColoredPackage) \
     .write()
