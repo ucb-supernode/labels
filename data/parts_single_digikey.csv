@@ -1,93 +1,93 @@
 gridid,subgridid,digikey_pn,cost,manual_title,manual_package,manual_quickdesc,manual_mfrpn,manual_desc,notes
-B5,,BC2657CT-ND,,,,,,,
-C5,,BC2659CT-ND,,,,,,,
-D5,,BC2662CT-ND,,,,,,,
-E5,,BC2665CT-ND,,,,,,,
-F5,,BC1162CT-ND,,,,,,,
-H5,,399-6602-ND,,,,,,,
-A6,,MBR40250TGOS-ND,,,,,,,
-B6,,1N4148TACT-ND,,,,,,,
-C6,,1N4007-TPMSCT-ND,,,,,,,
-F6,,P10258-ND,,,,,,,
-G6,,XC967-ND,,,,,,,
-H7,,BC2301-ND,,,,,,,
-A8,,BUF634P-ND,,,,,,,
-B8,,296-7186-5-ND,,,,,,,
-C8,,OPA277PA-ND,,,,,,,
-D8,,INA128PA-ND,,,,,,,
-E8,,296-34310-5-ND,,,,,,,
-F8,,INA134PA-ND,,,,,,,
-G8,,296-1389-5-ND,,,,,,,
-A9,,296-29493-ND,,,,,,,
-B9,,296-21235-5-ND,,,,,,,
-C9,,OPA690ID-ND,,,,,,,
-D9,,OPA691ID-ND,,,,,,,
-E9,,296-16756-5-ND,,,,,,,
-F9,,296-17400-5-ND,,,,,,,
-G9,,296-28770-1-ND,,,,,,,
-H9,,296-14175-5-ND,,,,,,,
-A10,,296-12299-1-ND,,,,,,,
-B10,,296-10530-1-ND,,,,,,,
-C10,,296-1014-1-ND,,,,,,,
+F1,,BC2657CT-ND,,,,,,,
+G1,,BC2659CT-ND,,,,,,,
+H1,,BC2662CT-ND,,,,,,,
+E2,,BC2665CT-ND,,,,,,,
+F2,,BC1162CT-ND,,,,,,,
+H2,,399-6602-ND,,,,,,,
+,,MBR40250TGOS-ND,,,,,,,
+E22,,1N4148TACT-ND,,,,,,,
+H22,,1N4007-TPMSCT-ND,,,,,,,
+,,P10258-ND,,,,,,,
+,,XC967-ND,,,,,,,
+E16,,BC2301-ND,,,,,,,
+,,BUF634P-ND,,,,,,,
+,,296-7186-5-ND,,,,,,,
+,,OPA277PA-ND,,,,,,,
+,,INA128PA-ND,,,,,,,
+A9,,296-34310-5-ND,,,,,,,
+B10,,INA134PA-ND,,,,,,,
+A10,,296-1389-5-ND,,,,,,,
+,,296-29493-ND,,,,,,,
+,,296-21235-5-ND,,,,,,,
+,,OPA690ID-ND,,,,,,,
+,,OPA691ID-ND,,,,,,,
+,,296-16756-5-ND,,,,,,,
+,,296-17400-5-ND,,,,,,,
+,,296-28770-1-ND,,,,,,,
+,,296-14175-5-ND,,,,,,,
+,,296-12299-1-ND,,,,,,,
+,,296-10530-1-ND,,,,,,,
+,,296-1014-1-ND,,,,,,,
 A11,,ADS1286PA-ND,,,,,,,
 B11,,ADS7816P-ND,,,,,,,
 C11,,296-21947-1-ND,,,,,,,
-D11,,296-27415-5-ND,,,,,,,
-E11,,DAC0808LCN/NOPB-ND,,,,,,,
-F11,,296-3041-5-ND,,,,,,,
-G11,,296-3073-5-ND,,,,,,,
-H11,,296-17643-1-ND,,,,,,,
-A12,,MC7805CTGOS-ND,,,,,,,
-B12,,497-7288-ND,,,,,,,
-C12,,296-10184-5-ND,,,,,,,
-D12,,296-17766-5-ND,,,,,,,
-E12,,296-21841-1-ND,,,,,,,
-F12,,296-32415-1-ND,,,,,,,
-G12,,296-14439-1-ND,,,,,,,
-H12,,REG711EA3.3250CT-ND,,,,,,,
-A13,,296-26122-1-ND,,,,,,,
-E13,,296-21860-5-ND,,,,,,,
-F13,,296-12013-1-ND,,,,,,,
+,,296-27415-5-ND,,,,,,,
+B12,,DAC0808LCN/NOPB-ND,,,,,,,
+A12,,296-3041-5-ND,,,,,,,
+C12,,296-3073-5-ND,,,,,,,
+D12,,296-17643-1-ND,,,,,,,
+,,MC7805CTGOS-ND,,,,,,,
+F9,,497-7288-ND,,,,,,,
+E11,,296-10184-5-ND,,,,,,,
+E13,,296-17766-5-ND,,,,,,,
+,,296-21841-1-ND,,,,,,,
+G9,,296-32415-1-ND,,,,,,,
+H10,,296-14439-1-ND,,,,,,,
+,,REG711EA3.3250CT-ND,,,,,,,
+G10,,296-26122-1-ND,,,,,,,
+F13,,296-21860-5-ND,,,,,,,
+H13,,296-12013-1-ND,,,,,,,
 G13,,296-13441-5-ND,,,,,,,
-H13,,296-24383-5-ND,,,,,,,
-A14,,568-4961-5-ND,,,,,,,
-B14,,342-1070-1-ND,,,,,,,
-A15,,296-29904-1-ND,,,,,,,
-B15,,296-8257-5-ND,,,,,,,
-C15,,296-3670-5-ND,,,,,,,
-D15,,296-1956-5-ND,,,,,,,
-E15,,296-24583-1-ND,,,,,,,
-E22,,EG1903-ND,$0.75 ,,,,,,
-A26,,2N3904-APCT-ND,,,,,,,
-B26,,PN2222ATFCT-ND,,,,,,,
-C26,,2N3906-APCT-ND,,,,,,,
-D26,,PN2907A-APCT-ND,,,,,,,
-E26,,BS170-ND,,,,,,,
-F26,,IRFD9010PBF-ND,,,,,,,
-,,LM318N/NOPB-ND,,"IC, Op-amp, LM318",,,,,General-purpose opamp DIP8
-,,296-1391-5-ND,,"IC, Op-amp, LM324",,,,,General-purpose quad opamp DIP14
-,,LMC6482IN/NOPB-ND,,,,,,,General-purpose opamp DIP8
-,,296-1777-5-ND,,,,,,,JFET opamp DIP14
+,,296-24383-5-ND,,,,,,,
+,,568-4961-5-ND,,,,,,,
+E17,,342-1070-1-ND,,,,,,,
+-,,296-29904-1-ND,,,,,,,
+,,296-8257-5-ND,,,,,,,
+,,296-3670-5-ND,,,,,,,
+,,296-1956-5-ND,,,,,,,
+,,296-24583-1-ND,,,,,,,
+E6,,EG1903-ND,$0.75 ,,,,,,
+E24,,2N3904-APCT-ND,,,,,,,
+F24,,PN2222ATFCT-ND,,,,,,,
+G24,,2N3906-APCT-ND,,,,,,,
+H24,,PN2907A-APCT-ND,,,,,,,
+E25,,BS170-ND,,,,,,,
+,,IRFD9010PBF-ND,,,,,,,
+A8,,LM318N/NOPB-ND,,"IC, Op-amp, LM318",,,,,General-purpose opamp DIP8
+B8,,296-1391-5-ND,,"IC, Op-amp, LM324",,,,,General-purpose quad opamp DIP14
+C8,,LMC6482IN/NOPB-ND,,,,,,,General-purpose opamp DIP8
+D8,,296-1777-5-ND,,,,,,,JFET opamp DIP14
 ,,296-44414-5-ND,,,,,,,Audio amp DIP8
 ,,296-43939-1-ND,,,,,,,General-purpose opamp SOT-23
 ,,296-21928-1-ND,,,,,,,Level shifter DIP14
-,,296-8503-5-ND,,,,,,,Octal transceiver DIP20
-,,296-1563-5-ND,,,,,,,Quad NAND gate DIP14
-,,296-1564-5-ND,,,,,,,Quad NOR gate DIP14
-,,296-1566-5-ND,,,,,,,Hex inverter DIP14
-,,296-1570-5-ND,,,,,,,Quad AND gate DIP14
-,,296-1589-5-ND,,,,,,,Quad OR gate DIP14
-,,296-8375-5-ND,,,,,,,Quad XOR gate DIP14
-,,296-1668-5-ND,,,,,,,D flip flop DIP14
-,,296-1600-5-ND,,,,,,,Shift register DIP16
+B19,,296-8503-5-ND,,,,,,,Octal transceiver DIP20
+C16,,296-1563-5-ND,,,,,,,Quad NAND gate DIP14
+D16,,296-1564-5-ND,,,,,,,Quad NOR gate DIP14
+D15,,296-1566-5-ND,,,,,,,Hex inverter DIP14
+A16,,296-1570-5-ND,,,,,,,Quad AND gate DIP14
+B16,,296-1589-5-ND,,,,,,,Quad OR gate DIP14
+C15,,296-8375-5-ND,,,,,,,Quad XOR gate DIP14
+B15,,296-1668-5-ND,,,,,,,D flip flop DIP14
+A15,,296-1600-5-ND,,,,,,,Shift register DIP16
 ,,296-1956-5-ND,,,,,,,Med-current Shift Register DIP20
-,,296-12810-5-ND,,,,,,,Mux/Demux DIP16
-,,296-42271-5-ND,,,,,,,Power NMOS TO-220
+A17,,296-12810-5-ND,,,,,,,Mux/Demux DIP16
+F25,,296-42271-5-ND,,,,,,,Power NMOS TO-220
 ,,296-43211-1-ND,,,,,,,Power NMOS D2PAK
 ,,296-28408-2-ND,,,,,,,Power NMOS DFN8
 ,,296-38916-2-ND,,,,,,,Power PMOS DFN8
 ,,296-39011-5-ND,,,,,,,5v linear reg TO-220
-,,LM317TNS/NOPB-ND,,,,,,,Adj linear reg TO-220
+E10,,LM317TNS/NOPB-ND,,,,,,,Adj linear reg TO-220
 ,,LM2937ET-3.3/NOPB-ND,,,,,,,3v3 linear reg TO-220
 ,,LM1117IMP-5.0/NOPBCT-ND,,,,,,,5v linear reg SOT-223
 ,,LMS8117AMP-3.3/NOPBCT-ND,,,,,,,3v3 linear reg SOT-223
@@ -99,41 +99,65 @@ F26,,IRFD9010PBF-ND,,,,,,,
 ,,296-17766-5-ND,,,,,,,Buck-boost controller DIP8
 ,,296-28913-1-ND,,,,,,,Gate driver halfbridge SOIC8
 ,,296-2397-5-ND,,,,,,,Gate driver sync SOIC8
-,,296-13109-5-ND,,,,,,,IO expander I2C DIP16
+A19,,296-13109-5-ND,,,,,,,IO expander I2C DIP16
 ,,LM334ZNS/NOPB-ND,,,,,,,Current source TO-92
-,,LM331N/NOPB-ND,,,,,,,Voltage-controlled oscillator DIP8
+B14,,LM331N/NOPB-ND,,,,,,,Voltage-controlled oscillator DIP8
 ,,296-26063-1-ND,,,,,,,Current sense hide-side SOT-23-5
 ,,296-23978-1-ND,,,,,,,Current sense I2C SOT23-5
 ,,296-27331-1-ND,,,,,,,Current sense adj ref SOT-363
-,,296-1798-5-ND,,,,,,,Adjustable zener DIP8
-,,296-9911-5-ND,,,,,,,H-bridge DIP16
-,,296-1857-5-ND,,"IC, 555 Timer",,,,,Timer DIP8
+F11,,296-1798-5-ND,,,,,,,Adjustable zener DIP8
+E14,,296-9911-5-ND,,,,,,,H-bridge DIP16
+A14,,296-1857-5-ND,,"IC, 555 Timer",,,,,Timer DIP8
 ,,MCP4131-103E/P-ND,,,,,,,"Digipot, Re-pick standardized"
-,,,,Si4432 RF Module,,,,,"Non-stock, no replacement when depleted"
-,,,,Header Pins,Breakaway,,,,
-,,,??,Misc Header,,,,,
-,,,??,Locking Header,,,,,
-,,,,Switches,Misc,,,,
-,,,??,Terminal Blocks,,,,,
-,,,,Heatsinks,Misc,,,,
-,,,??,Knobs,Misc,,,,
-,,,,Alligator Clips,,,,,
-,,,??,3.5mm Barrel Jack,,,,,
+B28,,,$2.00 ,Si4432 RF Module,,,,,"Non-stock, no replacement when depleted"
+E3,,,,"Header, Pins & Sockets",,,,,
+F3,,,,"Headers, Misc",,,,,
+H6,,,,Switches,Misc,,,,
+D27,,,,Knobs,Misc,,,,
+B23,,,,3.5mm Barrel Jack,,,,,
 ,,668-1460-ND,,,,,,,"Microphone, re-pick standardized"
 ,,,,Buzzer,Misc,,,,re-pick standardized
-,,,,Relays,Misc,,,,
-,,,$2.00 ,Motors,Misc,,,,
-,,,$2.00 ,Breakout Boards,??,,,,
-,,751-1031-ND,$1.00 ,,??,,,,Reflective Sensor
-,,PDV-P8103-ND,$1.00 ,,??,,,,CdS Photocell
-,,475-1070-ND,$1.00 ,,??,,,,Photocell
-,,480-3541-ND,,,,,,,Reflective Sensor
-,,,,"LEDs, Amber",3mm,,,,
-,,,,"LEDs, Red",5mm & SMT ??,,,,
-,,,,"LEDs, Yellow",5mm & SMT ??,,,,
-,,,,"LEDs, Green",5mm & SMT ??,,,,
-,,,,"LEDs, Blue",5mm & SMT ??,,,,
-,,,,"LEDs, White",5mm & SMT ??,,,,
-,,,,"LEDs, UV/IR",5mm & SMT ??,,,,
-,,,,"LEDs, Red & Green",??,Bi-color,,,
-,,,,Labels,,,,,??
+A28,,,,Relays,Misc,,,,
+B28,,,$2.00 ,Motors,Misc,,,,
+B22,,,$2.00 ,Breakout Boards,Misc,,,,
+F28,,751-1031-ND,$1.00 ,,,,,,Reflective Sensor
+E15,,PDV-P8103-ND,$1.00 ,,,,,,CdS Photocell
+E15,,475-1070-ND,$1.00 ,,,,,,Photocell
+F15,,480-3541-ND,,,,,,,Reflective Sensor
+F4,,,,"LEDs, Amber",3mm,,,,
+E4,,,,"LEDs, Red",5mm & SMT,,,,
+G4,,,,"LEDs, Yellow",5mm & SMT,,,,
+H4,,,,"LEDs, Green",5mm & SMT,,,,
+E5,,,,"LEDs, Blue",5mm & SMT,,,,
+F5,,,,"LEDs, White",5mm & SMT,,,,
+G5,,,,"LEDs, UV/IR",5mm & SMT,,,,
+A24,,,,"LEDs, Red & Green",5mm,Forward and Reverse,,,
+H28,,,,Labels,44mm x 16mm,Supernode Interal Usage,,,
+D9,,,,"IC, Op-amps, Misc",,,,,
+E19,,,,"IC, MCU, MSP430",,,,,
+E20,,,,"IC, MCU, PIC, 8-bit",,,,,
+F20,,,,"IC, MCU, PIC, 16-bit",,,,,
+E21,,,,"IC, MCU, Atmel AVR",,,,,
+F21,,,,"IC, MCU, Atmel Misc",,,,,
+H21,,,,"IC, FPGAs, Misc",,,,,
+A22,,,,SMD breadboard adapters,,,,,
+G22,,,,"Diodes, Misc",,Schottky,,,
+A23,,,,Screw Terminals,,,,,
+E23,,,,"Zener Diodes, Misc",,,,,
+F23,,,,"Zener Diodes, Misc",,,,,
+G5,,,,"LEDs, Pre-wired, Various","Prewired, Inline Resistor",,,,
+C24,,,,"LED Matrix, 8x8",,,,,
+D24,,,,Numeric LEDs,,,,,
+A25,,,,Crystals,,,,,
+G25,,BS250P-ND,,,,,,,
+D27,,,,,,,,,
+E27,,,,Zipties,,,,,
+F27,,,,Zipties,,,,,
+H27,,,,Ferrite chokes,,,,,
+G28,,,,BJT array,,,,,
+D3,,,,Polyester-film Capacitors,,,,,
+H5,,,,"LEDs, RGB",5mm,Common-cathode,,,
+F6,,,,Tactile Switches,,,,,
+G6,,,,Tactile Switches,Misc,,,,
+G7,,,,Potentiometers,,,,,
+H7,,,,"Trimpot, 10k",,,,,

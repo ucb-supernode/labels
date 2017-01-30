@@ -59,6 +59,16 @@ class CsvRowCollection:
 
     return CsvGroupedRows(groups_dict, self.outname)
 
+  # Takes a function of row dict -> boolean. If false, the row is removed from the output.
+  def filter(self, fn):
+    filtered_rows = []
+    for row in self.rows:
+      row_dict = {k: v for (k, v) in zip(self.header, row)}
+      if fn(row_dict):
+        filtered_rows.append(row)
+
+    return CsvRowCollection(self.header, filtered_rows, self.outname)
+
 class CsvGroupedRows:
   def __init__(self, groups_dict, outname):
     self.groups_dict = groups_dict
