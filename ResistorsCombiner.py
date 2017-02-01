@@ -50,11 +50,11 @@ def CombineFn(group_name, row_dicts):
   else:
       assert False, "Unexpected #rows %s in group %s" % (len(mapped_row_dicts), group_name)
 
-  retval = {'title': 'Resistor',
+  retval = {'diptitle': 'Resistor',
+          'packtitle': 'Resistor',
           'quickdesc': aggregate('quickdesc', row_dicts),
-          'pack': aggregate('pack', row_dicts),
-		  'dippack': aggregate('dippack', row_dicts),
-          'cost': aggregate('cost', row_dicts),
+          'package': aggregate('package', row_dicts),
+          'pcost': aggregate('pcost', row_dicts),
           'bg_color': aggregate('bg_color', row_dicts),
           'gridid': aggregate('gridid', row_dicts),
           }

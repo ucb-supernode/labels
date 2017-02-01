@@ -26,14 +26,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="6.6014034"
-     inkscape:cx="76.210705"
+     inkscape:cx="49.625449"
      inkscape:cy="43.546965"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
+     inkscape:window-width="2560"
+     inkscape:window-height="1537"
+     inkscape:window-x="1192"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      units="mm"
@@ -136,7 +136,7 @@
          id="tspan4143-0-2"
          x="81.67675"
          y="966.73621"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:center;letter-spacing:-1px;word-spacing:0px;text-anchor:middle">%(title)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:center;letter-spacing:-1px;word-spacing:0px;text-anchor:middle">%(packtitle)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -151,11 +151,9 @@
          id="tspan4143-6-6-4"
          x="152.92055"
          y="975.8244"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.50000048px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:end;letter-spacing:-0.25px;text-anchor:end"><tspan
-   style="font-weight:bold;fill:#007f00;fill-opacity:1"
-   id="tspan4215">%(dippack)</tspan><tspan>%(pack)</tspan> <tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.50000048px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:end;letter-spacing:-0.25px;text-anchor:end">%(package)<tspan
    style="font-weight:bold;fill:#7f0000;fill-opacity:1"
-   id="tspan4165">%(cost)</tspan></tspan></text>
+   id="tspan4165">%(pcost)</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -540,5 +538,20 @@
            sodipodi:role="line"
            id="tspan4363">stroke=%(res_stroke_3)</tspan></text>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="82.17675"
+       y="966.73621"
+       id="text4141-0-2-6"
+       sodipodi:linespacing="125%"
+       transform="scale(0.94868326,1.0540926)"
+       inkscape:transform-center-x="4.6250001"
+       inkscape:transform-center-y="-0.125"><tspan
+         sodipodi:role="line"
+         id="tspan4143-0-2-4"
+         x="81.67675"
+         y="966.73621"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:center;letter-spacing:-1px;word-spacing:0px;text-anchor:middle;fill:#007f00;fill-opacity:1">%(diptitle)</tspan></text>
   </g>
 </svg>
