@@ -124,13 +124,11 @@ F28,,751-1031-ND,$1.00 ,,,,,,Reflective Sensor
 E15,,PDV-P8103-ND,$1.00 ,,,,,,CdS Photocell
 E15,,475-1070-ND,$1.00 ,,,,,,Photocell
 F15,,480-3541-ND,,,,,,,Reflective Sensor
-F4,,,,"LEDs, Amber",3mm,,,,
 E4,,,,"LEDs, Red",5mm & SMT,,,,
 G4,,,,"LEDs, Yellow",5mm & SMT,,,,
 H4,,,,"LEDs, Green",5mm & SMT,,,,
 E5,,,,"LEDs, Blue",5mm & SMT,,,,
 F5,,,,"LEDs, White",5mm & SMT,,,,
-G5,,,,"LEDs, UV/IR",5mm & SMT,,,,
 A24,,,,"LEDs, Red & Green",5mm,Forward and Reverse,,,
 H28,,,,Labels,44mm x 16mm,Supernode Interal Usage,,,
 D9,,,,"IC, Op-amps, Misc",,,,,
