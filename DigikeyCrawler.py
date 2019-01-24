@@ -54,8 +54,8 @@ def DigikeyCrawl(row_dict):
   soup = BeautifulSoup(content, 'html.parser')
 
   parametrics = {}
-  parametrics.update(parse_digikey_table(soup.find('table', id='product-details')))
-  parametrics.update(parse_digikey_table(soup.find('table', id='prod-att-table')))
+  parametrics.update(parse_digikey_table(soup.find('table', id='product-overview')))
+  parametrics.update(parse_digikey_table(soup.find('table', id='product-attribute-table')))
 
   return {'parametrics': str(parametrics)}
 

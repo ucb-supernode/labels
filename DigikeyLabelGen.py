@@ -77,8 +77,11 @@ quickdesc_rules = {
     QuickDescStruct([ParametricPreprocess("Power (Watts)",
                                           regex_capture_map([(".*(\d+/\d+W).*", "%s"),
                                                             ], default=False)),
+                     ParametricPreprocess("Resistance",
+                                          regex_capture_map([(".*(\d+\.?\d*) ([kM]?)Ohms.*", "%s %s\u03a9"),
+                                                            ], default=False)),
                     ],
-                    "Resistor, %(Resistance (Ohms))s\u03a9",
+                    "Resistor, %(Resistance)s",
                     "%(Tolerance)s, %(Power (Watts))s"
                    ),
 "Ceramic Capacitors":
@@ -86,10 +89,10 @@ quickdesc_rules = {
                     "Capacitor, %(Capacitance)s",
                     "Ceramic, %(Voltage - Rated)s, %(Temperature Coefficient)s, %(Tolerance)s"
                    ),
-"Aluminum Capacitors":
+"Aluminum Electrolytic Capacitors":
     QuickDescStruct([],
                     "Capacitor, %(Capacitance)s",
-                    "Aluminum, %(Voltage Rating)s, %(Tolerance)s"
+                    "Aluminum, %(Voltage - Rated)s, %(Tolerance)s"
                    ),
 
 ### Electromechanical
@@ -141,18 +144,18 @@ quickdesc_rules = {
 
 ### ICs, Power conversion
 "PMIC - Voltage Regulators - Linear":
-    QuickDescStruct([ParametricPreprocess("Voltage - Output",
+    QuickDescStruct([ParametricPreprocess("Voltage - Output (Min/Fixed)",
                                           regex_capture_map([(".*~.*", "Adjustable"),
                                                              ("(\d+.?\d*\w*V)", "%s"),
                                                              (".*", ''),
                                                             ], default=False)),
-                     ParametricPreprocess("Voltage - Dropout (Typical)",
+                     ParametricPreprocess("Voltage Dropout (Max)",
                                           regex_capture_map([("(\d+.?\d*\w*V)\s*@.*", "%s"),
                                                              ("\?", "?"),
                                                             ], default=False)),
                     ],
-                    "IC, LDO, %(Voltage - Output)s",
-                    "%(Current - Output)s, %(Voltage - Dropout (Typical))s(d)"
+                    "IC, LDO, %(Voltage - Output (Min/Fixed))s",
+                    "%(Current - Output)s, %(Voltage Dropout (Max))s(d)"
                    ),
 "PMIC - Voltage Reference":
     QuickDescStruct([],
@@ -215,7 +218,7 @@ quickdesc_rules = {
 "Linear - Amplifiers - Instrumentation, OP Amps, Buffer Amps":
     QuickDescStruct([],
                     "IC, Op-amp",
-                    "%(-3db Bandwidth)s (-3db), %(Slew Rate)s"
+                    "%(Slew Rate)s"
                    ),
 "Linear - Amplifiers - Audio":
     QuickDescStruct([],
