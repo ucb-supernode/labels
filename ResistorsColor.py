@@ -1,5 +1,3 @@
-import ast
-
 from labelannotator import *
 import re
 

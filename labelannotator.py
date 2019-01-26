@@ -114,13 +114,15 @@ def PriorityMap(in_fields, out_field):
       if in_field in row_dict and row_dict[in_field]:
         return {out_field: row_dict[in_field]}
     return {}
-
   return annotate_fn
 
 def StaticField(out_field, out_value):
   def annotate_fn(row_dict):
     return {out_field: out_value}
-
   return annotate_fn
 
+def FieldEquals(in_field, equal_value):
+  def filter_fn(row_dict):
+    return row_dict[in_field] == equal_value
+  return filter_fn
   

@@ -35,26 +35,26 @@ def Labels(env, target, source_template, source_config, source_csv):
   return File(target)
 env.AddMethod(Labels)
 
-resistors_front_csv = env.Annotator('resistors3x_color.csv',
-                                    'data/resistors3x_data.csv',
-                                    ['ResistorsColor.py'])
-resistors_front_labels = env.Labels('resistors_front.svg',
-                          'templates/template_resistors_3x.svg',
-                          'templates/template_front.ini',
-                          resistors_front_csv)
+resistors_csv = env.Annotator('resistors_3x_color.csv',
+  'data/resistors_3x.csv',
+  ['ResistorsColor.py'])
+resistors_labels = env.Labels('resistors_drawers.svg',
+  'templates/template_resistors_3x.svg',
+  'templates/template_front.ini',
+  resistors_csv)
 
-parts_sub_csv = env.Annotator('parts_sub.csv',
-                          'data/parts_sub_digikey.csv',
-                          ['DigikeyCrawler.py',
-                           'DigikeyLabelGen.py',
-                           'SupernodeAnnotator.py'])
-
-parts_single_csv = env.Annotator('parts_single.csv',
-                          'data/parts_single_digikey.csv',
-                          ['DigikeyCrawler.py',
-                           'DigikeyLabelGen.py',
-                           'SupernodeAnnotator.py'])
-parts_single_labels = env.Labels('parts_single.svg',
-                          'templates/template_parts_single.svg',
-                          'templates/template_front.ini',
-                          parts_single_csv)
+parts_csv = env.Annotator('parts_data.csv',
+  'data/all_parts.csv',
+  ['DigikeyCrawler.py',
+   'DigikeyLabelGen.py',
+   'SupernodeAnnotator.py'])
+parts_drawers_csv = env.Annotator('parts_drawers_data.csv',
+  'parts_data.csv',
+  ['DrawersFilter.py'])
+parts_labels_csv = env.Annotator('parts_labels_data.csv',
+  'parts_data.csv',
+  ['LabelsFilter.py'])
+parts_drawer_labels = env.Labels('parts_drawers.svg',
+  'templates/template_parts_single.svg',
+  'templates/template_front.ini',
+  parts_drawers_csv)
