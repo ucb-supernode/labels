@@ -290,6 +290,14 @@ quickdesc_rules = {
                     "IC, I/O Expander",
                     "%(Interface)s, %(Number of I/O)s I/O"
                    ),
+"Embedded - Microcontrollers":
+    QuickDescStruct([ParametricPreprocess("Program Memory Size",
+                                          regex_capture_map([("(\d+[KMG]B)", "%s"),
+                                                            ], default=False)),
+                    ],
+                    "IC, MCU, %(Core Processor)s",
+                    "%(Number of I/O)s I/O, %(Speed)s, %(Program Memory Size)s"
+                   ),
 ### ICs, Misc, Sensors
 "Magnetic Sensors - Linear, Compass (ICs)":
     QuickDescStruct([],

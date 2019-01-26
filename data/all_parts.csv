@@ -1,175 +1,175 @@
-serial,template,gridid,subgridid,digikey_pn,cost,manual_title,manual_package,manual_quickdesc,manual_mfrpn,manual_desc,notes
-S001,drawer,F1,,BC2657CT-ND,,,,,,,
-S002,drawer,G1,,BC2659CT-ND,,,,,,,
-S003,drawer,H1,,BC2662CT-ND,,,,,,,
-S004,drawer,E2,,BC2665CT-ND,,,,,,,
-S005,drawer,F2,,BC1162CT-ND,,,,,,,
-S006,drawer,H2,,399-6602-ND,,,,,,,
-S007,drawer,,,MBR40250TGOS-ND,,,,,,,
-S008,drawer,E22,,1N4148TACT-ND,,,,,,,
-S009,drawer,H22,,1N4007-TPMSCT-ND,,,,,,,
-S010,drawer,,,P10258-ND,,,,,,,
-S011,drawer,,,XC967-ND,,,,,,,
-S012,drawer,E16,,BC2301-ND,,,,,,,
-S013,drawer,,,BUF634P-ND,,,,,,,
-S014,drawer,,,296-7186-5-ND,,,,,,,
-S015,drawer,,,OPA277PA-ND,,,,,,,
-S016,drawer,,,INA128PA-ND,,,,,,,
-S017,drawer,A9,,296-34310-5-ND,,,,,,,
-S018,drawer,B10,,INA134PA-ND,,,,,,,
-S019,drawer,A10,,296-1389-5-ND,,,,,,,
-S020,drawer,,,296-29493-ND,,,,,,,
-S021,drawer,,,296-21235-5-ND,,,,,,,
-S022,drawer,,,OPA690ID-ND,,,,,,,
-S023,drawer,,,OPA691ID-ND,,,,,,,
-S024,drawer,,,296-16756-5-ND,,,,,,,
-S025,drawer,,,296-17400-5-ND,,,,,,,
-S026,drawer,,,296-28770-1-ND,,,,,,,
-S027,drawer,,,296-14175-5-ND,,,,,,,
-S028,drawer,,,296-12299-1-ND,,,,,,,
-S029,drawer,,,296-10530-1-ND,,,,,,,
-S030,drawer,,,296-1014-1-ND,,,,,,,
-S031,drawer,A11,,ADS1286PA-ND,,,,,,,
-S032,drawer,B11,,ADS7816P-ND,,,,,,,
-S033,drawer,C11,,296-21947-1-ND,,,,,,,
-S034,drawer,,,296-27415-5-ND,,,,,,,
-S035,drawer,B12,,DAC0808LCN/NOPB-ND,,,,,,,
-S036,drawer,A12,,296-3041-5-ND,,,,,,,
-S037,drawer,C12,,296-3073-5-ND,,,,,,,
-S038,drawer,D12,,296-17643-1-ND,,,,,,,
-S039,drawer,,,MC7805CTGOS-ND,,,,,,,
-S040,drawer,F9,,497-7288-ND,,,,,,,
-S041,drawer,E11,,296-10184-5-ND,,,,,,,
-S042,drawer,E13,,296-17766-5-ND,,,,,,,
-S043,drawer,,,296-21841-1-ND,,,,,,,
-S044,drawer,G9,,296-32415-1-ND,,,,,,,
-S045,drawer,H10,,296-14439-1-ND,,,,,,,
-S046,drawer,,,REG711EA3.3250CT-ND,,,,,,,
-S047,drawer,G10,,296-26122-1-ND,,,,,,,
-S048,drawer,F13,,296-21860-5-ND,,,,,,,
-S049,drawer,H13,,296-12013-1-ND,,,,,,,
-S050,drawer,G13,,296-13441-5-ND,,,,,,,
-S051,drawer,,,296-24383-5-ND,,,,,,,
-S052,drawer,,,568-4961-5-ND,,,,,,,
-S053,drawer,E17,,342-1070-1-ND,,,,,,,
-S054,drawer,-,,296-29904-1-ND,,,,,,,
-S055,drawer,,,296-8257-5-ND,,,,,,,
-S056,drawer,,,296-3670-5-ND,,,,,,,
-S057,drawer,,,296-1956-5-ND,,,,,,,
-S058,drawer,,,296-24583-1-ND,,,,,,,
-S059,drawer,E6,,EG1903-ND,$0.75 ,,,,,,
-S060,drawer,E24,,2N3904-APCT-ND,,,,,,,
-S061,drawer,F24,,PN2222ATFCT-ND,,,,,,,
-S062,drawer,G24,,2N3906-APCT-ND,,,,,,,
-S063,drawer,H24,,PN2907A-APCT-ND,,,,,,,
-S064,drawer,E25,,BS170-ND,,,,,,,
-S065,drawer,,,IRFD9010PBF-ND,,,,,,,
-S066,drawer,A8,,LM318N/NOPB-ND,,"IC, Op-amp, LM318",,,,,General-purpose opamp DIP8
-S067,drawer,B8,,296-1391-5-ND,,"IC, Op-amp, LM324",,,,,General-purpose quad opamp DIP14
-S068,drawer,C8,,LMC6482IN/NOPB-ND,,,,,,,General-purpose opamp DIP8
-S069,drawer,D8,,296-1777-5-ND,,,,,,,JFET opamp DIP14
-S070,drawer,,,296-44414-5-ND,,,,,,,Audio amp DIP8
-S071,drawer,,,296-43939-1-ND,,,,,,,General-purpose opamp SOT-23
-S072,drawer,,,296-21928-1-ND,,,,,,,Level shifter DIP14
-S073,drawer,B19,,296-8503-5-ND,,,,,,,Octal transceiver DIP20
-S074,drawer,C16,,296-1563-5-ND,,,,,,,Quad NAND gate DIP14
-S075,drawer,D16,,296-1564-5-ND,,,,,,,Quad NOR gate DIP14
-S076,drawer,D15,,296-1566-5-ND,,,,,,,Hex inverter DIP14
-S077,drawer,A16,,296-1570-5-ND,,,,,,,Quad AND gate DIP14
-S078,drawer,B16,,296-1589-5-ND,,,,,,,Quad OR gate DIP14
-S079,drawer,C15,,296-8375-5-ND,,,,,,,Quad XOR gate DIP14
-S080,drawer,B15,,296-1668-5-ND,,,,,,,D flip flop DIP14
-S081,drawer,A15,,296-1600-5-ND,,,,,,,Shift register DIP16
-S082,drawer,,,296-1956-5-ND,,,,,,,Med-current Shift Register DIP20
-S083,drawer,A17,,296-12810-5-ND,,,,,,,Mux/Demux DIP16
-S084,drawer,F25,,296-42271-5-ND,,,,,,,Power NMOS TO-220
-S085,drawer,,,296-43211-1-ND,,,,,,,Power NMOS D2PAK
-S086,drawer,,,296-28408-2-ND,,,,,,,Power NMOS DFN8
-S087,drawer,,,296-38916-2-ND,,,,,,,Power PMOS DFN8
-S088,drawer,,,296-39011-5-ND,,,,,,,5v linear reg TO-220
-S089,drawer,E10,,LM317TNS/NOPB-ND,,,,,,,Adj linear reg TO-220
-S090,drawer,,,LM2937ET-3.3/NOPB-ND,,,,,,,3v3 linear reg TO-220
-S091,drawer,,,LM1117IMP-5.0/NOPBCT-ND,,,,,,,5v linear reg SOT-223
-S092,drawer,,,LMS8117AMP-3.3/NOPBCT-ND,,,,,,,3v3 linear reg SOT-223
-S093,drawer,,,296-20717-1-ND,,,,,,,5v linear reg SOT-23
-S094,drawer,,,296-18476-1-ND,,,,,,,3v3 linear reg SOT-23
-S095,drawer,,,LM3671MF-3.3/NOPBCT-ND,,,,,,,Sync buck reg 3v3
-S096,drawer,,,LM2734XMK/NOPBCT-ND,,,,,,,Buck reg adj SOT-23-6
-S097,drawer,,,LMR62014XMF/NOPBCT-ND,,,,,,,Boost reg adj SOT-23-6
-S098,drawer,,,296-17766-5-ND,,,,,,,Buck-boost controller DIP8
-S099,drawer,,,296-28913-1-ND,,,,,,,Gate driver halfbridge SOIC8
-S100,drawer,,,296-2397-5-ND,,,,,,,Gate driver sync SOIC8
-S101,drawer,A19,,296-13109-5-ND,,,,,,,IO expander I2C DIP16
-S102,drawer,,,LM334ZNS/NOPB-ND,,,,,,,Current source TO-92
-S103,drawer,B14,,LM331N/NOPB-ND,,,,,,,Voltage-controlled oscillator DIP8
-S104,drawer,,,296-26063-1-ND,,,,,,,Current sense hide-side SOT-23-5
-S105,drawer,,,296-23978-1-ND,,,,,,,Current sense I2C SOT23-5
-S106,drawer,,,296-27331-1-ND,,,,,,,Current sense adj ref SOT-363
-S107,drawer,F11,,296-1798-5-ND,,,,,,,Adjustable zener DIP8
-S108,drawer,E14,,296-9911-5-ND,,,,,,,H-bridge DIP16
-S109,drawer,A14,,296-1857-5-ND,,"IC, 555 Timer",,,,,Timer DIP8
-S110,drawer,,,MCP4131-103E/P-ND,,,,,,,"Digipot, Re-pick standardized"
-S111,drawer,B28,,,$2.00 ,Si4432 RF Module,,,,,"Non-stock, no replacement when depleted"
-S112,drawer,E3,,,,"Header, Pins & Sockets",,,,,
-S113,drawer,F3,,,,"Headers, Misc",,,,,
-S114,drawer,H6,,,,Switches,Misc,,,,
-S115,drawer,D27,,,,Knobs,Misc,,,,
-S116,drawer,B23,,,,3.5mm Barrel Jack,,,,,
-S117,drawer,,,668-1460-ND,,,,,,,"Microphone, re-pick standardized"
-S118,drawer,,,,,Buzzer,Misc,,,,re-pick standardized
-S119,drawer,A28,,,,Relays,Misc,,,,
-S120,drawer,B28,,,$2.00 ,Motors,Misc,,,,
-S121,drawer,B22,,,$2.00 ,Breakout Boards,Misc,,,,
-S122,drawer,F28,,751-1031-ND,$1.00 ,,,,,,Reflective Sensor
-S123,drawer,E15,,PDV-P8103-ND,$1.00 ,,,,,,CdS Photocell
-S124,drawer,E15,,475-1070-ND,$1.00 ,,,,,,Photocell
-S125,drawer,F15,,480-3541-ND,,,,,,,Reflective Sensor
-S126,drawer,E4,,,,"LEDs, Red",5mm & SMT,,,,
-S127,drawer,G4,,,,"LEDs, Yellow",5mm & SMT,,,,
-S128,drawer,H4,,,,"LEDs, Green",5mm & SMT,,,,
-S129,drawer,E5,,,,"LEDs, Blue",5mm & SMT,,,,
-S130,drawer,F5,,,,"LEDs, White",5mm & SMT,,,,
-S131,drawer,A24,,,,"LEDs, Red & Green",5mm,Forward and Reverse,,,
-S132,drawer,H28,,,,Labels,44mm x 16mm,Supernode Interal Usage,,,
-S133,drawer,D9,,,,"IC, Op-amps, Misc",,,,,
-S134,drawer,E19,,,,"IC, MCU, MSP430",,,,,
-S135,drawer,E20,,,,"IC, MCU, PIC, 8-bit",,,,,
-S136,drawer,F20,,,,"IC, MCU, PIC, 16-bit",,,,,
-S137,drawer,E21,,,,"IC, MCU, Atmel AVR",,,,,
-S138,drawer,F21,,,,"IC, MCU, Atmel Misc",,,,,
-S139,drawer,H21,,,,"IC, FPGAs, Misc",,,,,
-S140,drawer,A22,,,,SMD breadboard adapters,,,,,
-S141,drawer,G22,,,,"Diodes, Misc",,Schottky,,,
-S142,drawer,A23,,,,Screw Terminals,,,,,
-S143,drawer,E23,,,,"Zener Diodes, Misc",,,,,
-S144,drawer,F23,,,,"Zener Diodes, Misc",,,,,
-S145,drawer,G5,,,,"LEDs, Pre-wired, Various","Prewired, Inline Resistor",,,,
-S146,drawer,C24,,,,"LED Matrix, 8x8",,,,,
-S147,drawer,D24,,,,Numeric LEDs,,,,,
-S148,drawer,A25,,,,Crystals,,,,,
-S149,drawer,G25,,BS250P-ND,,,,,,,
-S150,drawer,D27,,,,,,,,,
-S151,drawer,E27,,,,Zipties,,,,,
-S152,drawer,F27,,,,Zipties,,,,,
-S153,drawer,H27,,,,Ferrite chokes,,,,,
-S154,drawer,G28,,,,BJT array,,,,,
-S155,drawer,D3,,,,Polyester-film Capacitors,,,,,
-S156,drawer,H5,,,,"LEDs, RGB",5mm,Common-cathode,,,
-S157,drawer,F6,,,,Tactile Switches,,,,,
-S158,drawer,G6,,,,Tactile Switches,Misc,,,,
-S159,drawer,G7,,,,Potentiometers,,,,,
-S160,drawer,H7,,,,"Trimpot, 10k",,,,,
-S161,label,A5,-1,BC1001CT-ND,,,,,,,
-S162,label,A5,-2,BC1005CT-ND,,,,,,,
-S163,label,A5,-3,BC1009CT-ND,,,,,,,
-S164,label,G5,-1,732-8625-1-ND,,,,,,,
-S165,label,G5,-2,399-6604-ND,,,,,,,
-S166,label,G5,-3,732-8700-1-ND,,,,,,,
-S167,label,H6,-1,887-2011-ND,,,,,,,
-S168,label,H6,-2,887-2015-ND,,,,,,,
-S169,label,F22,-1,450-1650-ND,,,,,,,
-S170,label,F22,-2,450-1649-ND,,,,,,,
-S171,label,F22,-3,450-1804-ND,,,,,,,
-S172,label,G22,-1,450-1644-ND,,,,,,,
-S173,label,G22,-2,450-1653-ND,,,,,,,
-S174,label,G22,-3,450-1643-ND,,,,,,,
+serial,template,print,gridid,subgridid,digikey_pn,cost,manual_title,manual_package,manual_quickdesc,manual_mfrpn,manual_desc,notes
+S001,drawer,,F1,,BC2657CT-ND,,,,,,,
+S002,drawer,,G1,,BC2659CT-ND,,,,,,,
+S003,drawer,,H1,,BC2662CT-ND,,,,,,,
+S004,drawer,,E2,,BC2665CT-ND,,,,,,,
+S005,drawer,,F2,,BC1162CT-ND,,,,,,,
+S006,drawer,,H2,,399-6602-ND,,,,,,,
+S007,drawer,,,,MBR40250TGOS-ND,,,,,,,
+S008,drawer,,E22,,1N4148TACT-ND,,,,,,,
+S009,drawer,,H22,,1N4007-TPMSCT-ND,,,,,,,
+S010,drawer,,,,P10258-ND,,,,,,,
+S011,drawer,,,,XC967-ND,,,,,,,
+S012,drawer,,E16,,BC2301-ND,,,,,,,
+S013,drawer,,,,BUF634P-ND,,,,,,,
+S014,drawer,,,,296-7186-5-ND,,,,,,,
+S015,drawer,,,,OPA277PA-ND,,,,,,,
+S016,drawer,,,,INA128PA-ND,,,,,,,
+S017,drawer,,A9,,296-34310-5-ND,,,,,,,
+S018,drawer,,B10,,INA134PA-ND,,,,,,,
+S019,drawer,,A10,,296-1389-5-ND,,,,,,,
+S020,drawer,,,,296-29493-ND,,,,,,,
+S021,drawer,,,,296-21235-5-ND,,,,,,,
+S022,drawer,,,,OPA690ID-ND,,,,,,,
+S023,drawer,,,,OPA691ID-ND,,,,,,,
+S024,drawer,,,,296-16756-5-ND,,,,,,,
+S025,drawer,,,,296-17400-5-ND,,,,,,,
+S026,drawer,,,,296-28770-1-ND,,,,,,,
+S027,drawer,,,,296-14175-5-ND,,,,,,,
+S028,drawer,,,,296-12299-1-ND,,,,,,,
+S029,drawer,,,,296-10530-1-ND,,,,,,,
+S030,drawer,,,,296-1014-1-ND,,,,,,,
+S031,drawer,,A11,,ADS1286PA-ND,,,,,,,
+S032,drawer,,B11,,ADS7816P-ND,,,,,,,
+S033,drawer,,C11,,296-21947-1-ND,,,,,,,
+S034,drawer,,,,296-27415-5-ND,,,,,,,
+S035,drawer,,B12,,DAC0808LCN/NOPB-ND,,,,,,,
+S036,drawer,,A12,,296-3041-5-ND,,,,,,,
+S037,drawer,,C12,,296-3073-5-ND,,,,,,,
+S038,drawer,,D12,,296-17643-1-ND,,,,,,,
+S039,drawer,,,,MC7805CTGOS-ND,,,,,,,
+S040,drawer,,F9,,497-7288-ND,,,,,,,
+S041,drawer,,E11,,296-10184-5-ND,,,,,,,
+S042,drawer,,E13,,296-17766-5-ND,,,,,,,
+S043,drawer,,,,296-21841-1-ND,,,,,,,
+S044,drawer,,,,296-32415-1-ND,,,,,,,
+S045,drawer,,H10,,296-14439-1-ND,,,,,,,
+S046,drawer,,,,REG711EA3.3250CT-ND,,,,,,,
+S047,drawer,,G10,,296-26122-1-ND,,,,,,,
+S048,drawer,,F13,,296-21860-5-ND,,,,,,,
+S049,drawer,,H13,,296-12013-1-ND,,,,,,,
+S050,drawer,,G13,,296-13441-5-ND,,,,,,,
+S051,drawer,,,,296-24383-5-ND,,,,,,,
+S052,drawer,,,,568-4961-5-ND,,,,,,,
+S053,drawer,,E17,,342-1070-1-ND,,,,,,,
+S054,drawer,,-,,296-29904-1-ND,,,,,,,
+S055,drawer,,,,296-8257-5-ND,,,,,,,
+S056,drawer,,,,296-3670-5-ND,,,,,,,
+S057,drawer,,,,296-1956-5-ND,,,,,,,
+S058,drawer,,,,296-24583-1-ND,,,,,,,
+S059,drawer,,E6,,EG1903-ND,$0.75 ,,,,,,
+S060,drawer,1,E24,,2N3904-APCT-ND,,,,,,,
+S061,drawer,,F24,,PN2222ATFCT-ND,,,,,,,
+S062,drawer,1,G24,,2N3906-APCT-ND,,,,,,,
+S063,drawer,,H24,,PN2907A-APCT-ND,,,,,,,
+S064,drawer,,E25,,BS170-ND,,,,,,,
+S065,drawer,,,,IRFD9010PBF-ND,,,,,,,
+S066,drawer,,A8,,LM318N/NOPB-ND,,"IC, Op-amp, LM318",,,,,General-purpose opamp DIP8
+S067,drawer,,B8,,296-1391-5-ND,,"IC, Op-amp, LM324",,,,,General-purpose quad opamp DIP14
+S068,drawer,,C8,,LMC6482IN/NOPB-ND,,,,,,,General-purpose opamp DIP8
+S069,drawer,,D8,,296-1777-5-ND,,,,,,,JFET opamp DIP14
+S070,drawer,,,,296-44414-5-ND,,,,,,,Audio amp DIP8
+S071,drawer,,,,296-43939-1-ND,,,,,,,General-purpose opamp SOT-23
+S072,drawer,,,,296-21928-1-ND,,,,,,,Level shifter DIP14
+S073,drawer,,B19,,296-8503-5-ND,,,,,,,Octal transceiver DIP20
+S074,drawer,,C16,,296-1563-5-ND,,,,,,,Quad NAND gate DIP14
+S075,drawer,,D16,,296-1564-5-ND,,,,,,,Quad NOR gate DIP14
+S076,drawer,,D15,,296-1566-5-ND,,,,,,,Hex inverter DIP14
+S077,drawer,,A16,,296-1570-5-ND,,,,,,,Quad AND gate DIP14
+S078,drawer,,B16,,296-1589-5-ND,,,,,,,Quad OR gate DIP14
+S079,drawer,,C15,,296-8375-5-ND,,,,,,,Quad XOR gate DIP14
+S080,drawer,,B15,,296-1668-5-ND,,,,,,,D flip flop DIP14
+S081,drawer,,A15,,296-1600-5-ND,,,,,,,Shift register DIP16
+S082,drawer,,,,296-1956-5-ND,,,,,,,Med-current Shift Register DIP20
+S083,drawer,,A17,,296-12810-5-ND,,,,,,,Mux/Demux DIP16
+S084,drawer,,F25,,296-42271-5-ND,,,,,,,Power NMOS TO-220
+S085,drawer,,,,296-43211-1-ND,,,,,,,Power NMOS D2PAK
+S086,drawer,,,,296-28408-2-ND,,,,,,,Power NMOS DFN8
+S087,drawer,,,,296-38916-2-ND,,,,,,,Power PMOS DFN8
+S088,drawer,,,,296-39011-5-ND,,,,,,,5v linear reg TO-220
+S089,drawer,,E10,,LM317TNS/NOPB-ND,,,,,,,Adj linear reg TO-220
+S090,drawer,,,,LM2937ET-3.3/NOPB-ND,,,,,,,3v3 linear reg TO-220
+S091,drawer,,,,LM1117IMP-5.0/NOPBCT-ND,,,,,,,5v linear reg SOT-223
+S092,drawer,,,,LMS8117AMP-3.3/NOPBCT-ND,,,,,,,3v3 linear reg SOT-223
+S093,drawer,,,,296-20717-1-ND,,,,,,,5v linear reg SOT-23
+S094,drawer,,,,296-18476-1-ND,,,,,,,3v3 linear reg SOT-23
+S095,drawer,,,,LM3671MF-3.3/NOPBCT-ND,,,,,,,Sync buck reg 3v3
+S096,drawer,,,,LM2734XMK/NOPBCT-ND,,,,,,,Buck reg adj SOT-23-6
+S097,drawer,,,,LMR62014XMF/NOPBCT-ND,,,,,,,Boost reg adj SOT-23-6
+S098,drawer,,,,296-17766-5-ND,,,,,,,Buck-boost controller DIP8
+S099,drawer,,,,296-28913-1-ND,,,,,,,Gate driver halfbridge SOIC8
+S100,drawer,,,,296-2397-5-ND,,,,,,,Gate driver sync SOIC8
+S101,drawer,,A19,,296-13109-5-ND,,,,,,,IO expander I2C DIP16
+S102,drawer,,,,LM334ZNS/NOPB-ND,,,,,,,Current source TO-92
+S103,drawer,,B14,,LM331N/NOPB-ND,,,,,,,Voltage-controlled oscillator DIP8
+S104,drawer,,,,296-26063-1-ND,,,,,,,Current sense hide-side SOT-23-5
+S105,drawer,,,,296-23978-1-ND,,,,,,,Current sense I2C SOT23-5
+S106,drawer,,,,296-27331-1-ND,,,,,,,Current sense adj ref SOT-363
+S107,drawer,,F11,,296-1798-5-ND,,,,,,,Adjustable zener DIP8
+S108,drawer,,E14,,296-9911-5-ND,,,,,,,H-bridge DIP16
+S109,drawer,,A14,,296-1857-5-ND,,"IC, 555 Timer",,,,,Timer DIP8
+S110,drawer,,,,MCP4131-103E/P-ND,,,,,,,"Digipot, Re-pick standardized"
+S111,drawer,,B28,,,$2.00 ,Si4432 RF Module,,,,,"Non-stock, no replacement when depleted"
+S112,drawer,,E3,,,,"Header, Pins & Sockets",,,,,
+S113,drawer,,F3,,,,"Headers, Misc",,,,,
+S114,drawer,,H6,,,,Switches,Misc,,,,
+S115,drawer,,D27,,,,Knobs,Misc,,,,
+S116,drawer,,B23,,,,3.5mm Barrel Jack,,,,,
+S117,drawer,,,,668-1460-ND,,,,,,,"Microphone, re-pick standardized"
+S118,drawer,,,,,,Buzzer,Misc,,,,re-pick standardized
+S119,drawer,,A28,,,,Relays,Misc,,,,
+S120,drawer,,B28,,,$2.00 ,Motors,Misc,,,,
+S121,drawer,,B22,,,$2.00 ,Breakout Boards,Misc,,,,
+S122,drawer,,F28,,751-1031-ND,$1.00 ,,,,,,Reflective Sensor
+S123,drawer,,E15,,PDV-P8103-ND,$1.00 ,,,,,,CdS Photocell
+S124,drawer,,E15,,475-1070-ND,$1.00 ,,,,,,Photocell
+S125,drawer,,F15,,480-3541-ND,,,,,,,Reflective Sensor
+S126,drawer,,E4,,,,"LEDs, Red",5mm & SMT,,,,
+S127,drawer,,G4,,,,"LEDs, Yellow",5mm & SMT,,,,
+S128,drawer,,H4,,,,"LEDs, Green",5mm & SMT,,,,
+S129,drawer,,E5,,,,"LEDs, Blue",5mm & SMT,,,,
+S130,drawer,,F5,,,,"LEDs, White",5mm & SMT,,,,
+S131,drawer,,A24,,,,"LEDs, Red & Green",5mm,Forward and Reverse,,,
+S132,drawer,,H28,,,,Labels,44mm x 16mm,Supernode Interal Usage,,,
+S133,drawer,,D9,,,,"IC, Op-amps, Misc",,,,,
+S134,drawer,,E19,,,,"IC, MCU, MSP430",,,,,
+S135,drawer,,E20,,,,"IC, MCU, PIC, 8-bit",,,,,
+S136,drawer,,F20,,,,"IC, MCU, PIC, 16-bit",,,,,
+S137,drawer,,E21,,,,"IC, MCU, Atmel AVR",,,,,
+S138,drawer,,F21,,,,"IC, MCU, Atmel Misc",,,,,
+S139,drawer,,H21,,,,"IC, FPGAs, Misc",,,,,
+S140,drawer,,A22,,,,SMD breadboard adapters,,,,,
+S141,drawer,,G22,,,,"Diodes, Misc",,Schottky,,,
+S142,drawer,,A23,,,,Screw Terminals,,,,,
+S143,drawer,,E23,,,,"Zener Diodes, Misc",,,,,
+S144,drawer,,F23,,,,"Zener Diodes, Misc",,,,,
+S145,drawer,,G5,,,,"LEDs, Pre-wired, Various","Prewired, Inline Resistor",,,,
+S146,drawer,,C24,,,,"LED Matrix, 8x8",,,,,
+S147,drawer,,D24,,,,Numeric LEDs,,,,,
+S148,drawer,,A25,,,,Crystals,,,,,
+S149,drawer,,G25,,BS250P-ND,,,,,,,
+S150,drawer,,D27,,,,,,,,,
+S151,drawer,,E27,,,,Zipties,,,,,
+S152,drawer,,F27,,,,Zipties,,,,,
+S153,drawer,,H27,,,,Ferrite chokes,,,,,
+S154,drawer,,G28,,,,BJT array,,,,,
+S155,drawer,,D3,,,,Polyester-film Capacitors,,,,,
+S156,drawer,,H5,,,,"LEDs, RGB",5mm,Common-cathode,,,
+S157,drawer,,F6,,,,Tactile Switches,,,,,
+S158,drawer,,G6,,,,Tactile Switches,Misc,,,,
+S159,drawer,,G7,,,,Potentiometers,,,,,
+S160,drawer,,H7,,,,"Trimpot, 10k",,,,,
+S161,label,,A5,-1,BC1001CT-ND,,,,,,,
+S162,label,,A5,-2,BC1005CT-ND,,,,,,,
+S163,label,,A5,-3,BC1009CT-ND,,,,,,,
+S164,label,,G5,-1,732-8625-1-ND,,,,,,,
+S165,label,,G5,-2,399-6604-ND,,,,,,,
+S166,label,,G5,-3,732-8700-1-ND,,,,,,,
+S167,label,,H6,-1,887-2011-ND,,,,,,,
+S168,label,,H6,-2,887-2015-ND,,,,,,,
+S169,label,,F22,-1,450-1650-ND,,,,,,,
+S170,label,,F22,-2,450-1649-ND,,,,,,,
+S171,label,,F22,-3,450-1804-ND,,,,,,,
+S172,label,,G22,-1,450-1644-ND,,,,,,,
+S173,label,,G22,-2,450-1653-ND,,,,,,,
+S174,label,,G22,-3,450-1643-ND,,,,,,,

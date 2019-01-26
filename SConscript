@@ -49,12 +49,21 @@ parts_csv = env.Annotator('parts_data.csv',
    'DigikeyLabelGen.py',
    'SupernodeAnnotator.py'])
 parts_drawers_csv = env.Annotator('parts_drawers_data.csv',
-  'parts_data.csv',
+  parts_csv,
   ['DrawersFilter.py'])
-parts_labels_csv = env.Annotator('parts_labels_data.csv',
-  'parts_data.csv',
-  ['LabelsFilter.py'])
+#parts_labels_csv = env.Annotator('parts_labels_data.csv',
+#  parts_csv,
+#  ['LabelsFilter.py'])
 parts_drawer_labels = env.Labels('parts_drawers.svg',
   'templates/template_parts_single.svg',
   'templates/template_front.ini',
   parts_drawers_csv)
+
+parts_new_csv = env.Annotator('parts_labels_data.csv',
+  'data/all_new_parts.csv',
+  ['DigikeyCrawler.py',
+   'DigikeyLabelGen.py',
+   'SupernodeAnnotator.py'])
+#parts_labels_csv = env.Annotator('parts_labels_data.csv',
+#  parts_new_csv,
+#  ['LabelsFilter.py'])
