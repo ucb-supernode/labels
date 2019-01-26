@@ -26,16 +26,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.919596"
-     inkscape:cx="63.21395"
-     inkscape:cy="43.612974"
+     inkscape:cx="67.696502"
+     inkscape:cy="8.3839035"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
      units="in"
      inkscape:window-width="1644"
      inkscape:window-height="1200"
-     inkscape:window-x="1615"
-     inkscape:window-y="139"
+     inkscape:window-x="1581"
+     inkscape:window-y="215"
      inkscape:window-maximized="0"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-midpoints="true"
@@ -102,14 +102,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="5.4121094"
+       x="114.58334"
        y="346.93137"
        id="text826"><tspan
          sodipodi:role="line"
          id="tspan824"
-         x="5.4121094"
+         x="114.58334"
          y="346.93137"
-         style="font-weight:bold;font-size:9.33333302px;stroke-width:0.26458332px">Supernode</tspan></text>
+         style="font-weight:bold;font-size:9.33333302px;text-align:end;text-anchor:end;stroke-width:0.26458332px">Supernode</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -141,18 +141,18 @@
            y="342.00937"
            x="5.903646"
            sodipodi:role="line"
-           id="tspan5751">#code128 align=xMid thickness=0.339mm %(id)</tspan></text>
+           id="tspan5751">#code128 align=xMin thickness=0.254mm %(serial)</tspan></text>
     </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="114.73828"
-       y="346.93137"
+       y="358.93137"
        id="text826-4"><tspan
          sodipodi:role="line"
          id="tspan824-6"
          x="114.73828"
-         y="346.93137"
-         style="font-weight:normal;font-size:9.33333302px;text-align:end;text-anchor:end;stroke-width:0.26458332px">%(id)</tspan></text>
+         y="358.93137"
+         style="font-weight:normal;font-size:9.33333302px;text-align:end;text-anchor:end;stroke-width:0.26458332px">%(serial)</tspan></text>
   </g>
 </svg>

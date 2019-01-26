@@ -14,7 +14,7 @@
    viewBox="0 0 155.90551 99.212601"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="template_parts_single.svg">
   <defs
      id="defs4" />
@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.313708"
-     inkscape:cx="41.40812"
-     inkscape:cy="27.190343"
+     inkscape:cx="78.553596"
+     inkscape:cy="32.531586"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -39,8 +39,8 @@
      units="mm"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-midpoints="true"
-     inkscape:snap-bbox-edge-midpoints="false"
-     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="false"
      inkscape:object-nodes="true">
     <inkscape:grid
        type="xygrid"
@@ -76,81 +76,18 @@
          id="rect4163"
          style="fill:#c0c0c0;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.36000001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
-         sodipodi:linespacing="125%"
-         id="text4183"
-         y="153.68546"
-         x="27.869873"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans'"
-           y="153.68546"
-           x="27.869873"
-           id="tspan4186"
-           sodipodi:role="line">#style fill=%(bg_color)</tspan></text>
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:condensed;font-size:8.75px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Light Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="28.634886"
+         y="152.95465"
+         id="text1220"><tspan
+           sodipodi:role="line"
+           id="tspan1218"
+           x="28.634886"
+           y="152.95465"
+           style="font-size:5px;stroke-width:0.9375px">#style fill=%(bg_color)</tspan></text>
     </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="82.17675"
-       y="966.73621"
-       id="text4141-0-2"
-       sodipodi:linespacing="125%"
-       transform="scale(0.94868326,1.0540926)"
-       inkscape:transform-center-x="4.6250001"
-       inkscape:transform-center-y="-0.125"><tspan
-         sodipodi:role="line"
-         id="tspan4143-0-2"
-         x="81.67675"
-         y="966.73621"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:center;letter-spacing:-1px;word-spacing:0px;text-anchor:middle">%(packtitle)</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="153.17055"
-       y="975.8244"
-       id="text4141-9-02-1"
-       sodipodi:linespacing="125%"
-       transform="scale(0.94868326,1.0540926)"
-       inkscape:transform-center-x="0.37500001"
-       inkscape:transform-center-y="-1.8750001"><tspan
-         sodipodi:role="line"
-         id="tspan4143-6-6-4"
-         x="152.92055"
-         y="975.8244"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.50000048px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:end;letter-spacing:-0.25px;text-anchor:end">%(package)<tspan
-   style="font-weight:bold;fill:#7f0000;fill-opacity:1"
-   id="tspan4165">%(pcost)</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="11.175618"
-       y="975.8244"
-       id="text4141-9-5-5-5"
-       sodipodi:linespacing="125%"
-       transform="scale(0.94868326,1.0540926)"><tspan
-         sodipodi:role="line"
-         id="tspan4143-6-5-1-8"
-         x="11.175618"
-         y="975.8244"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.50000048px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:start;letter-spacing:-0.25px;text-anchor:start">%(quickdesc)</tspan></text>
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4215"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:87.00000048%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0.9,0,0,1,-68.837306,775.51702)"><flowRegion
-         id="flowRegion4217"><rect
-           id="rect4219"
-           width="149.60629"
-           height="21.259848"
-           x="88.296921"
-           y="255.58537"
-           style="line-height:87.00000048%" /></flowRegion><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:87.00000048%;font-family:'Courier New';-inkscape-font-specification:'Courier New';letter-spacing:-1.05409253px"
-         id="flowPara4163"><flowSpan
-           style="font-weight:bold;font-size:10.54092693px;line-height:87.00000048%;letter-spacing:-0.52704626px"
-           id="flowSpan4225">%(mfrpn)</flowSpan><flowSpan
-           style="font-size:7.90569496px;line-height:87.00000048%;letter-spacing:-0.26352313px"
-           id="flowSpan4223"> %(desc)</flowSpan></flowPara></flowRoot>    <path
+    <path
        style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.88582677;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.88582677, 3.54330709;stroke-dashoffset:0;stroke-opacity:1"
        d="m -14.17323,953.14964 28.34646,0"
        id="path4169-0"
@@ -212,18 +149,92 @@
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:37.94733047px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="82.17675"
-       y="966.73621"
-       id="text4141-0-2-6"
-       sodipodi:linespacing="125%"
-       transform="scale(0.94868326,1.0540926)"
-       inkscape:transform-center-x="4.6250001"
-       inkscape:transform-center-y="-0.125"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:condensed;font-size:8.75px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Light Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="77.949097"
+       y="1017.0073"
+       id="text844"><tspan
          sodipodi:role="line"
-         id="tspan4143-0-2-4"
-         x="81.67675"
-         y="966.73621"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';text-align:center;letter-spacing:-1px;word-spacing:0px;text-anchor:middle;fill:#007f00;fill-opacity:1">%(diptitle)</tspan></text>
-  </g>
+         id="tspan842"
+         x="77.949097"
+         y="1017.0073"
+         style="font-weight:bold;font-size:15px;text-align:center;text-anchor:middle;fill:#007f00;fill-opacity:1;stroke-width:0.9375px">%(diptitle)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:condensed;font-size:8.75000095px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Light Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="77.949097"
+       y="1017.0073"
+       id="text844-1"><tspan
+         sodipodi:role="line"
+         id="tspan842-9"
+         x="77.949097"
+         y="1017.0073"
+         style="font-weight:bold;font-size:15px;text-align:center;text-anchor:middle;stroke-width:0.9375px">%(packtitle)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:condensed;font-size:8.75px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Light Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="9.9463272"
+       y="1027.1389"
+       id="text883"><tspan
+         sodipodi:role="line"
+         id="tspan881"
+         x="9.9463272"
+         y="1027.1389"
+         style="font-size:8.75px;stroke-width:0.9375px">%(quickdesc)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:condensed;font-size:8.75000095px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Light Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="145.96773"
+       y="1027.1389"
+       id="text883-2"><tspan
+         sodipodi:role="line"
+         id="tspan881-1"
+         x="145.96773"
+         y="1027.1389"
+         style="font-size:8.75000095px;text-align:end;text-anchor:end;stroke-width:0.9375px">%(package)<tspan
+   style="font-weight:bold;fill:#7f0000;fill-opacity:1"
+   id="tspan905">%(pcost)</tspan></tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot846"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:condensed;font-size:9.33333302px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Light Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0.9375,0,0,0.9375,0,953.14964)"><flowRegion
+         id="flowRegion848"><rect
+           id="rect850"
+           width="94.48819"
+           height="64.251968"
+           x="34.015747"
+           y="117.16535" /></flowRegion><flowPara
+         id="flowPara854" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot846-9"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0.24804687,0,0,0.24804687,30.330589,1097.2664)"><flowRegion
+         id="flowRegion848-6"
+         style="font-size:10.66666698px"><rect
+           id="rect850-3"
+           width="542.82349"
+           height="85.708969"
+           x="-79.423164"
+           y="-259.59732"
+           style="font-size:10.66666698px" /></flowRegion><flowPara
+         style="font-size:35.2755928px;line-height:100%"
+         id="flowPara839"><flowSpan
+   id="flowSpan1165"
+   style="font-weight:bold;font-size:35.2755928px;line-height:100%">%(mfrpn) </flowSpan><flowSpan>%(desc)</flowSpan></flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot846-9-4"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0.24804687,0,0,0.24804687,34.715432,1101.0164)"><flowRegion
+         id="flowRegion848-6-2"
+         style="font-size:10.66666698px"><rect
+           id="rect850-3-8"
+           width="542.82355"
+           height="85.709091"
+           x="-97.100647"
+           y="-274.71542"
+           style="font-size:10.66666698px" /></flowRegion><flowPara
+         style="font-size:35.2755928px;line-height:100%;text-align:end;text-anchor:end"
+         id="flowPara839-3"> </flowPara><flowPara
+         style="font-size:35.2755928px;line-height:100%;text-align:end;text-anchor:end"
+         id="flowPara1216">%(serial)</flowPara></flowRoot>  </g>
 </svg>
