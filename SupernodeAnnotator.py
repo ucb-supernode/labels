@@ -9,15 +9,6 @@ def GrididExists(row_dict):
   else:
     return False
 
-def PriorityMap(in_fields, out_field):
-  def annotate_fn(row_dict):
-    for in_field in in_fields:
-      if in_field in row_dict and row_dict[in_field]:
-        return {out_field: row_dict[in_field]}
-    return {}
-
-  return annotate_fn
-
 def BackgroundColor(row_dict):
   if row_dict['cost']:
     return {'bg_color': '#FFC0C0'}

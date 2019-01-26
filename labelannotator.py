@@ -106,3 +106,21 @@ def load(desc="dataset annotator"):
     rows = list(csv.reader(infile, delimiter=','))
 
   return CsvRowCollection(rows[0], rows[1:], args.output)
+
+# Standard map functions
+def PriorityMap(in_fields, out_field):
+  def annotate_fn(row_dict):
+    for in_field in in_fields:
+      if in_field in row_dict and row_dict[in_field]:
+        return {out_field: row_dict[in_field]}
+    return {}
+
+  return annotate_fn
+
+def StaticField(out_field, out_value):
+  def annotate_fn(row_dict):
+    return {out_field: out_value}
+
+  return annotate_fn
+
+  

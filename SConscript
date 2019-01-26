@@ -35,16 +35,9 @@ def Labels(env, target, source_template, source_config, source_csv):
   return File(target)
 env.AddMethod(Labels)
 
-resistors_csv = env.Annotator('resistors.csv',
-                              'data/resistors_digikey.csv',
-                              ['DigikeyCrawler.py',
-                               'DigikeyLabelGen.py',
-                               'DigikeyResistorGen.py',
-                               'SupernodeAnnotator.py'])
-
-resistors_front_csv = env.Annotator('resistors_front.csv',
-                                    resistors_csv,
-                                    ['ResistorsCombiner.py'])
+resistors_front_csv = env.Annotator('resistors3x_color.csv',
+                                    'data/resistors3x_data.csv',
+                                    ['ResistorsColor.py'])
 resistors_front_labels = env.Labels('resistors_front.svg',
                           'templates/template_resistors_3x.svg',
                           'templates/template_front.ini',
@@ -55,10 +48,6 @@ parts_sub_csv = env.Annotator('parts_sub.csv',
                           ['DigikeyCrawler.py',
                            'DigikeyLabelGen.py',
                            'SupernodeAnnotator.py'])
-parts_sub_labels = env.Labels('parts_sub.svg',
-                          'templates/template_parts_sub.svg',
-                          'labelmaker/configs/1.75in_x_0.5in_Letter.ini',
-                          parts_sub_csv)
 
 parts_single_csv = env.Annotator('parts_single.csv',
                           'data/parts_single_digikey.csv',

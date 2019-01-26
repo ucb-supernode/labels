@@ -1,4 +1,4 @@
-type,package,desc,val1,val2,val3,gridid
+type,package,desc,val_1,val_2,val_3,gridid
 Resistor,Axial,"±5%, 1/4W",1Ω,1.2Ω,1.5Ω,A-1
 Resistor,Axial,"±5%, 1/4W",1.8Ω,2.2Ω,2.7Ω,B-1
 Resistor,Axial,"±5%, 1/4W",3.3Ω,3.9Ω,4.7Ω,C-1
