@@ -280,6 +280,11 @@ quickdesc_rules = {
                     "IC, Gate Driver",
                     "%(Number of Drivers)s drivers"
                    ),
+"PMIC - Battery Chargers":
+    QuickDescStruct([],
+                    "IC, Battery Charger",
+                    "%(Battery Chemistry)s, %(Battery Pack Voltage)s, %(Charge Current - Max)s"
+                   ),
 "Interface - Analog Switches, Multiplexers, Demultiplexers":  # TODO: make this better
     QuickDescStruct([],
                     "IC, Analog Switch",
@@ -298,10 +303,28 @@ quickdesc_rules = {
                     "IC, MCU, %(Core Processor)s",
                     "%(Number of I/O)s I/O, %(Speed)s, %(Program Memory Size)s"
                    ),
+"Embedded - CPLDs (Complex Programmable Logic Devices)":
+    QuickDescStruct([],
+                    "IC, CPLD",
+                    "%(Number of I/O)s I/O, %(Number of Macrocells)s MCs"
+                   ),
+"Memory":
+    QuickDescStruct([ParametricPreprocess("Memory Size",
+                                          regex_capture_map([("(\d+[KMG]b)", "%s"),
+                                                            ], default=False)),
+                    ],
+                    "IC, %(Memory Format)s, %(Memory Size)s",
+                    "%(Memory Interface)s"
+                   ),
 ### ICs, Misc, Sensors
 "Magnetic Sensors - Linear, Compass (ICs)":
     QuickDescStruct([],
                     "Sensor, Magnetic",
+                    "%(Axis)s axis, %(Bandwidth)s"
+                   ),
+"Motion Sensors - Accelerometers":
+    QuickDescStruct([],
+                    "Sensor, Accelerometer",
                     "%(Axis)s axis, %(Bandwidth)s"
                    ),
 "Optical Sensors - Photo Detectors - CdS Cells":
